@@ -13,6 +13,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
@@ -55,6 +56,7 @@ import me.hawthorne.coui.ui.CouiPullRefresh
 @Composable
 fun HomeScreen(onDialog: () -> Unit, onSheet: () -> Unit, onSnackbar: () -> Unit) {
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        ExamplePageHeader("Home", "Explore the reusable COUI foundation")
         CouiInfoBanner(title = "COUI Showcase", message = "Reusable Compose UI components.")
         CouiCard {
             Column(modifier = Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -81,6 +83,7 @@ fun ControlsScreen() {
     var selected by remember { mutableStateOf(0) }
     var segment by remember { mutableStateOf(0) }
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        ExamplePageHeader("Controls", "Forms, selections, and compact actions")
         CouiCard {
             Column(modifier = Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 CouiSearchField(query = query, onQueryChange = { query = it }, placeholder = "Search components")
@@ -132,6 +135,7 @@ fun PickersScreen() {
     var month by remember { mutableStateOf(1) }
     var time by remember { mutableStateOf(CouiTime(12, 30)) }
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        ExamplePageHeader("Pickers", "Calendar and time selection patterns")
         CouiCard {
             CouiDatePicker(
                 selectedDate = date,
@@ -155,8 +159,10 @@ fun MoreScreen() {
     var chip by remember { mutableStateOf(0) }
     var refreshing by remember { mutableStateOf(false) }
     var progress by remember { mutableStateOf(0.4f) }
+    val animatedProgress by animateFloatAsState(progress, label = "example-progress")
     val refreshScope = rememberCoroutineScope()
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        ExamplePageHeader("More components", "Patterns for content, status, and gestures")
         CouiCard {
             Column(modifier = Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 CouiTabLayout(
@@ -193,7 +199,7 @@ fun MoreScreen() {
         CouiCard {
             Column(modifier = Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 Text("Progress", style = MaterialTheme.typography.titleMedium)
-                CouiProgressIndicator(progress = progress)
+                CouiProgressIndicator(progress = animatedProgress)
                 CouiButton(text = "Advance", onClick = { progress = (progress + 0.2f).coerceAtMost(1f) })
             }
         }
@@ -219,5 +225,17 @@ fun MoreScreen() {
                 CouiEmptyState(title = "Pull to refresh", description = "Drag down on this card")
             }
         }
+    }
+}
+
+@Composable
+private fun ExamplePageHeader(title: String, description: String) {
+    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Text(title, style = MaterialTheme.typography.headlineSmall)
+        Text(
+            description,
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
     }
 }

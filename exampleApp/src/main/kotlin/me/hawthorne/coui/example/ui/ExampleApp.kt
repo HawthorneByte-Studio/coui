@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import me.hawthorne.coui.ui.CouiBottomSheet
+import me.hawthorne.coui.ui.CouiBadge
 import me.hawthorne.coui.ui.CouiButton
 import me.hawthorne.coui.ui.CouiCard
 import me.hawthorne.coui.ui.CouiDialog
@@ -44,7 +45,12 @@ fun ExampleApp() {
         val scope = rememberCoroutineScope()
 
         CouiScaffold(
-            topBar = { CouiTopBar(title = "COUI Showcase") },
+            topBar = {
+                CouiTopBar(
+                    title = "COUI Showcase",
+                    actions = { CouiBadge(label = "Example") },
+                )
+            },
             bottomBar = {
                 CouiNavigationBar(
                     items = destinations.mapIndexed { index, label ->
