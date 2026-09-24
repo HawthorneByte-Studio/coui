@@ -24,6 +24,7 @@ fun CouiTopBar(
     title: String,
     modifier: Modifier = Modifier,
     navigationIcon: (@Composable () -> Unit)? = null,
+    onNavigationClick: () -> Unit = {},
     actions: (@Composable () -> Unit)? = null,
 ) {
     Surface(
@@ -38,7 +39,7 @@ fun CouiTopBar(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             if (navigationIcon != null) {
-                IconButton(onClick = {}, content = navigationIcon)
+                IconButton(onClick = onNavigationClick, content = navigationIcon)
             }
             Text(
                 text = title,
