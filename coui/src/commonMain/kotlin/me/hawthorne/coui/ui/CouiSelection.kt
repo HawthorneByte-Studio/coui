@@ -26,6 +26,8 @@ fun CouiTabLayout(
     onSelectedIndexChange: (Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    require(items.isNotEmpty())
+    require(selectedIndex in items.indices)
     Row(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
