@@ -254,4 +254,90 @@ object CouiIcons {
             }
         }.build()
     }
+
+    val AccountCircle: ImageVector by lazy {
+        ImageVector.Builder(CouiAccountCircle, 24.dp, 24.dp, 24f, 24f).apply {
+            path(fill = SolidColor(Color.Black)) {
+                moveTo(12f, 2f)
+                curveTo(6.48f, 2f, 2f, 6.48f, 2f, 12f)
+                curveTo(2f, 17.52f, 6.48f, 22f, 12f, 22f)
+                curveTo(17.52f, 22f, 22f, 17.52f, 22f, 12f)
+                curveTo(22f, 6.48f, 17.52f, 2f, 12f, 2f)
+                close()
+                moveTo(12f, 5.5f)
+                curveTo(14.07f, 5.5f, 15.75f, 7.18f, 15.75f, 9.25f)
+                curveTo(15.75f, 11.32f, 14.07f, 13f, 12f, 13f)
+                curveTo(9.93f, 13f, 8.25f, 11.32f, 8.25f, 9.25f)
+                curveTo(8.25f, 7.18f, 9.93f, 5.5f, 12f, 5.5f)
+                close()
+                moveTo(5.5f, 18.25f)
+                curveTo(6.56f, 15.92f, 8.84f, 14.5f, 12f, 14.5f)
+                curveTo(15.16f, 14.5f, 17.44f, 15.92f, 18.5f, 18.25f)
+                curveTo(16.73f, 19.66f, 14.49f, 20.5f, 12f, 20.5f)
+                curveTo(9.51f, 20.5f, 7.27f, 19.66f, 5.5f, 18.25f)
+                close()
+            }
+        }.build()
+    }
+
+    val Share: ImageVector by lazy {
+        ImageVector.Builder(CouiShare, 24.dp, 24.dp, 24f, 24f).apply {
+            path(fill = SolidColor(Color.Black)) {
+                moveTo(18f, 16f)
+                curveTo(17.24f, 16f, 16.56f, 16.3f, 16.04f, 16.77f)
+                lineTo(8.91f, 12.62f)
+                curveTo(8.96f, 12.42f, 9f, 12.21f, 9f, 12f)
+                curveTo(9f, 11.79f, 8.96f, 11.58f, 8.91f, 11.38f)
+                lineTo(15.96f, 7.23f)
+                curveTo(16.5f, 7.71f, 17.21f, 8f, 18f, 8f)
+                curveTo(19.66f, 8f, 21f, 6.66f, 21f, 5f)
+                curveTo(21f, 3.34f, 19.66f, 2f, 18f, 2f)
+                curveTo(16.34f, 2f, 15f, 3.34f, 15f, 5f)
+                curveTo(15f, 5.21f, 15.04f, 5.42f, 15.09f, 5.62f)
+                lineTo(8.04f, 9.77f)
+                curveTo(7.5f, 9.29f, 6.79f, 9f, 6f, 9f)
+                curveTo(4.34f, 9f, 3f, 10.34f, 3f, 12f)
+                curveTo(3f, 13.66f, 4.34f, 15f, 6f, 15f)
+                curveTo(6.79f, 15f, 7.5f, 14.71f, 8.04f, 14.23f)
+                lineTo(15.16f, 18.38f)
+                curveTo(15.11f, 18.58f, 15.08f, 18.79f, 15.08f, 19f)
+                curveTo(15.08f, 20.66f, 16.39f, 22f, 18f, 22f)
+                curveTo(19.61f, 22f, 20.92f, 20.66f, 20.92f, 19f)
+                curveTo(20.92f, 17.34f, 19.61f, 16f, 18f, 16f)
+                close()
+            }
+        }.build()
+    }
+
+    val Document: ImageVector by lazy {
+        ImageVector.Builder(CouiDocument, 24.dp, 24.dp, 24f, 24f).apply {
+            path(fill = SolidColor(Color.Black)) {
+                moveTo(14f, 2f)
+                horizontalLineTo(6f)
+                curveTo(4.9f, 2f, 4f, 2.9f, 4f, 4f)
+                verticalLineTo(20f)
+                curveTo(4f, 21.1f, 4.9f, 22f, 6f, 22f)
+                horizontalLineTo(18f)
+                curveTo(19.1f, 22f, 20f, 21.1f, 20f, 20f)
+                verticalLineTo(8f)
+                lineTo(14f, 2f)
+                close()
+                moveTo(14f, 4.5f)
+                lineTo(17.5f, 8f)
+                horizontalLineTo(14f)
+                verticalLineTo(4.5f)
+                close()
+                moveTo(7f, 12f)
+                horizontalLineTo(17f)
+                verticalLineTo(13.5f)
+                horizontalLineTo(7f)
+                close()
+                moveTo(7f, 16f)
+                horizontalLineTo(17f)
+                verticalLineTo(17.5f)
+                horizontalLineTo(7f)
+                close()
+            }
+        }.build()
+    }
 }

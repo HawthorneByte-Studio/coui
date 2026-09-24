@@ -7,7 +7,8 @@ The public API lives under `me.hawthorne.coui.ui`.
 - `CouiTheme`, `CouiTokens`, `CouiMotion`, `CouiScaffold`
 - `CouiTopBar`, `CouiCard`, `CouiButton`, `CouiButtonGroup`
 - `CouiIcons` (`Home`, `Tune`, `Calendar`, `More`, `Add`, `Refresh`, `Back`,
-  `Search`, `Close`, `Check`, `ChevronRight`, `Info`)
+  `Search`, `Close`, `Check`, `ChevronRight`, `Info`, `AccountCircle`, `Share`,
+  `Document`)
 
 ## Forms and selection
 
