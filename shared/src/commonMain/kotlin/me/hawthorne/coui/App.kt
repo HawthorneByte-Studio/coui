@@ -9,10 +9,12 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -23,7 +25,10 @@ import me.hawthorne.coui.ui.CouiDialog
 import me.hawthorne.coui.ui.CouiDivider
 import me.hawthorne.coui.ui.CouiListItem
 import me.hawthorne.coui.ui.CouiProgressIndicator
+import me.hawthorne.coui.ui.CouiRadioButton
 import me.hawthorne.coui.ui.CouiSection
+import me.hawthorne.coui.ui.CouiSlider
+import me.hawthorne.coui.ui.CouiSnackbarHost
 import me.hawthorne.coui.ui.CouiSwitch
 import me.hawthorne.coui.ui.CouiTextField
 import me.hawthorne.coui.ui.CouiTheme
@@ -39,6 +44,10 @@ fun App() {
         var dialogVisible by remember { mutableStateOf(false) }
         var sheetVisible by remember { mutableStateOf(false) }
         var progress by remember { mutableStateOf(0.6f) }
+        var sliderValue by remember { mutableStateOf(0.5f) }
+        var selectedOption by remember { mutableStateOf(0) }
+        val snackbarHostState = remember { androidx.compose.material3.SnackbarHostState() }
+        val scope = rememberCoroutineScope()
         Column(modifier = Modifier.fillMaxSize()) {
             CouiTopBar(title = "COUI")
             LazyColumn(
@@ -86,6 +95,10 @@ fun App() {
                             CouiButton(text = "Primary action", onClick = {}, enabled = enabled)
                             CouiButton(text = "Show dialog", onClick = { dialogVisible = true })
                             CouiButton(text = "Show bottom sheet", onClick = { sheetVisible = true })
+                            CouiButton(
+                                text = "Show snackbar",
+                                onClick = { scope.launch { snackbarHostState.showSnackbar("Action completed") } },
+                            )
                         }
                     }
                 }
@@ -111,6 +124,21 @@ fun App() {
                                 CouiButton(
                                     text = "Advance",
                                     onClick = { progress = (progress + 0.1f).coerceAtMost(1f) },
+                                )
+                                Text("Slider: ${(sliderValue * 100).toInt()}%")
+                                CouiSlider(
+                                    value = sliderValue,
+                                    onValueChange = { sliderValue = it },
+                                )
+                                CouiRadioButton(
+                                    selected = selectedOption == 0,
+                                    onClick = { selectedOption = 0 },
+                                    label = "Default option",
+                                )
+                                CouiRadioButton(
+                                    selected = selectedOption == 1,
+                                    onClick = { selectedOption = 1 },
+                                    label = "Alternative option",
                                 )
                             }
                         }
@@ -142,5 +170,9 @@ fun App() {
                 )
             }
         }
+        CouiSnackbarHost(
+            modifier = Modifier.padding(bottom = 16.dp),
+            hostState = snackbarHostState,
+        )
     }
 }
