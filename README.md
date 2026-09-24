@@ -13,6 +13,8 @@ Selection controls include `CouiTabLayout`, `CouiCheckbox`, and `CouiDropdownMen
 Status and compact controls include `CouiChip`, `CouiStepper`, and `CouiInfoBanner`.
 The shared foundation also exposes `CouiTokens`, `CouiMotion`, and `CouiScaffold`
 for consistent spacing, shapes, elevation, animation, and screen structure.
+The token set includes values extracted from `oplus-framework-res.apk`, including
+the 58dp alert-dialog button height, 16dp XL corner radius, and popup blur colors.
 Selection layouts can use `CouiSegmentedButton` or the `CouiToggleGroup` shorthand.
 
 * [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.

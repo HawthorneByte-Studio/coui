@@ -3,6 +3,7 @@ package me.hawthorne.coui.ui
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -34,6 +35,7 @@ fun CouiDialog(
             CouiButton(
                 text = confirmText,
                 onClick = onConfirm,
+                modifier = Modifier.heightIn(min = CouiTokens.Components.AlertDialogButtonHeight),
             )
         },
         dismissButton = dismissText?.let { text ->
@@ -41,6 +43,7 @@ fun CouiDialog(
                 CouiButton(
                     text = text,
                     onClick = onDismissRequest,
+                    modifier = Modifier.heightIn(min = CouiTokens.Components.AlertDialogButtonHeight),
                 )
             }
         },

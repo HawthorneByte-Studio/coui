@@ -2,6 +2,7 @@ package me.hawthorne.coui.ui
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
@@ -26,6 +27,21 @@ object CouiTokens {
         val Card = 1.dp
         val Navigation = 3.dp
         val TopBar = 2.dp
+    }
+
+    object Components {
+        val AlertDialogButtonHeight = 58.dp
+        val RoundCornerXlRadius = 16.dp
+        const val RoundCornerMWeight = 1.1f
+        const val RoundCornerXlWeight = 0.99f
+    }
+
+    object Popup {
+        val DarkBlendBlur = Color(0xFF4D4D4D)
+        val DarkMixBlur = Color(0xCCB2B2B2)
+        val LightBlendBlur = Color(0xFF737373)
+        val LightMixBlur = Color(0xCC404040)
+        val BackgroundAboveBlur = Color.Transparent
     }
 
     object Motion {
