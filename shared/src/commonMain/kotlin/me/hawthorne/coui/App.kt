@@ -34,6 +34,7 @@ import me.hawthorne.coui.ui.CouiListItem
 import me.hawthorne.coui.ui.CouiNavigationBar
 import me.hawthorne.coui.ui.CouiNavigationItem
 import me.hawthorne.coui.ui.CouiProgressIndicator
+import me.hawthorne.coui.ui.CouiPullRefresh
 import me.hawthorne.coui.ui.CouiPreferenceCategory
 import me.hawthorne.coui.ui.CouiPreferenceItem
 import me.hawthorne.coui.ui.CouiRadioButton
@@ -81,17 +82,21 @@ fun App() {
         var displayedYear by remember { mutableStateOf(2026) }
         var displayedMonth by remember { mutableStateOf(1) }
         var selectedTime by remember { mutableStateOf(CouiTime(12, 0)) }
+        var refreshing by remember { mutableStateOf(false) }
         val snackbarHostState = remember { androidx.compose.material3.SnackbarHostState() }
         val scope = rememberCoroutineScope()
         Column(modifier = Modifier.fillMaxSize()) {
             CouiTopBar(title = "COUI")
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .weight(1f),
-                contentPadding = PaddingValues(16.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp),
+            CouiPullRefresh(
+                refreshing = refreshing,
+                onRefresh = { refreshing = false },
+                modifier = Modifier.weight(1f),
             ) {
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp),
+                ) {
                 item {
                     CouiCard {
                         Column(modifier = Modifier.padding(20.dp)) {
@@ -303,6 +308,7 @@ fun App() {
                                 summary = listOf("Blue", "Teal", "Neutral")[selectedMenuItem],
                                 onClick = { menuExpanded = true },
                             )
+                        }
                         }
                     }
                 }
