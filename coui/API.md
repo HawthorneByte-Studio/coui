@@ -23,5 +23,4 @@ The public API lives under `me.hawthorne.coui.ui`.
 
 - `CouiDialog`, `CouiBottomSheet`, `CouiTooltip`, `CouiSnackbarHost`
 - `CouiProgressIndicator`, `CouiPullRefresh`, `CouiPager`
-- `CouiDatePicker`, `CouiTimePicker`
-
+- `CouiDatePicker` (with optional range and today action), `CouiTimePicker`

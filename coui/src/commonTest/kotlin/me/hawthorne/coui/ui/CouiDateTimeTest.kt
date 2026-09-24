@@ -26,4 +26,11 @@ class CouiDateTimeTest {
         assertEquals(3, couiMinuteIndex(59, 15))
         assertEquals(0, couiMinuteIndex(-1, 15))
     }
+
+    @Test
+    fun datesCompareChronologically() {
+        assertEquals(true, CouiDate(2026, 1, 2) > CouiDate(2026, 1, 1))
+        assertEquals(true, CouiDate(2026, 2, 1) > CouiDate(2026, 1, 31))
+        assertEquals(true, CouiDate(2025, 12, 31) < CouiDate(2026, 1, 1))
+    }
 }

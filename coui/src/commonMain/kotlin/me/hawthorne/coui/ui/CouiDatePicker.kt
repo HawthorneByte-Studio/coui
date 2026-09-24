@@ -22,7 +22,15 @@ data class CouiDate(
     val year: Int,
     val month: Int,
     val day: Int,
-)
+) : Comparable<CouiDate> {
+    override fun compareTo(other: CouiDate): Int = compareValuesBy(
+        this,
+        other,
+        CouiDate::year,
+        CouiDate::month,
+        CouiDate::day,
+    )
+}
 
 private val CouiMonthNames = listOf(
     "January", "February", "March", "April", "May", "June",
@@ -37,6 +45,10 @@ fun CouiDatePicker(
     displayedYear: Int = selectedDate?.year ?: 2026,
     displayedMonth: Int = selectedDate?.month ?: 1,
     onDisplayedMonthChange: (year: Int, month: Int) -> Unit = { _, _ -> },
+    minDate: CouiDate? = null,
+    maxDate: CouiDate? = null,
+    today: CouiDate? = null,
+    onTodayClick: (CouiDate) -> Unit = onDateSelected,
 ) {
     val safeMonth = displayedMonth.coerceIn(1, 12)
     Column(modifier = modifier.fillMaxWidth().padding(CouiTokens.Spacing.Large)) {
@@ -64,6 +76,14 @@ fun CouiDatePicker(
                     val nextYear = if (safeMonth == 12) displayedYear + 1 else displayedYear
                     onDisplayedMonthChange(nextYear, nextMonth)
                 },
+            )
+        }
+        if (today != null) {
+            CouiButton(
+                text = "Today",
+                onClick = { onTodayClick(today) },
+                enabled = isDateInRange(today, minDate, maxDate),
+                modifier = Modifier.padding(top = CouiTokens.Spacing.Small),
             )
         }
         Row(
@@ -95,6 +115,7 @@ fun CouiDatePicker(
                         if (day != null) {
                             val date = CouiDate(displayedYear, safeMonth, day)
                             val selected = date == selectedDate
+                            val enabled = isDateInRange(date, minDate, maxDate)
                             Box(
                                 modifier = Modifier
                                     .size(40.dp)
@@ -106,13 +127,15 @@ fun CouiDatePicker(
                                             Modifier
                                         },
                                     )
-                                    .clickable { onDateSelected(date) },
+                                    .clickable(enabled = enabled) { onDateSelected(date) },
                                 contentAlignment = Alignment.Center,
                             ) {
                                 Text(
                                     text = day.toString(),
                                     color = if (selected) {
                                         MaterialTheme.colorScheme.onPrimary
+                                    } else if (!enabled) {
+                                        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
                                     } else {
                                         MaterialTheme.colorScheme.onSurface
                                     },
@@ -137,6 +160,9 @@ internal fun couiDaysInMonth(year: Int, month: Int): Int = when (month) {
 }
 
 private fun isLeapYear(year: Int): Boolean = year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)
+
+private fun isDateInRange(date: CouiDate, minDate: CouiDate?, maxDate: CouiDate?): Boolean =
+    (minDate == null || date >= minDate) && (maxDate == null || date <= maxDate)
 
 internal fun couiFirstWeekday(year: Int, month: Int): Int {
     var adjustedYear = year
