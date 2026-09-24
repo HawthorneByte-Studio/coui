@@ -50,6 +50,9 @@ object CouiTokens {
         val PopupListItemMinHeight = 42.dp
         val PopupListItemVerticalPadding = 8.dp
         val PopupListItemHorizontalPadding = 24.dp
+        val PreferenceItemMinHeight = 48.dp
+        val PreferenceHorizontalPadding = 32.dp
+        val PreferenceContentSpacing = 16.dp
         val RoundCornerXlRadius = 16.dp
         const val RoundCornerMWeight = 1.1f
         const val RoundCornerXlWeight = 0.99f

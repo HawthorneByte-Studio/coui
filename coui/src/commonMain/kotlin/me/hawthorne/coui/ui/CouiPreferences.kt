@@ -5,7 +5,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -46,6 +49,7 @@ fun CouiPreferenceItem(
     Row(
         modifier = modifier
             .fillMaxWidth()
+            .heightIn(min = CouiTokens.Components.PreferenceItemMinHeight)
             .then(
                 if (onClick != null) {
                     Modifier.clickable(enabled = enabled, onClick = onClick)
@@ -54,18 +58,18 @@ fun CouiPreferenceItem(
                 },
             )
             .padding(
-                horizontal = CouiTokens.Spacing.Large,
-                vertical = CouiTokens.Spacing.Medium,
+                horizontal = CouiTokens.Components.PreferenceHorizontalPadding,
+                vertical = CouiTokens.Spacing.Small,
             ),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         if (leadingContent != null) {
             leadingContent()
+            Spacer(modifier = Modifier.width(CouiTokens.Components.PreferenceContentSpacing))
         }
         Column(
             modifier = Modifier
-                .weight(1f)
-                .padding(horizontal = CouiTokens.Spacing.Medium),
+                .weight(1f),
         ) {
             Text(
                 text = title,
