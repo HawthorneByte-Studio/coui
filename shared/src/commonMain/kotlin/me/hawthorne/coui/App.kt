@@ -32,6 +32,8 @@ import me.hawthorne.coui.ui.CouiListItem
 import me.hawthorne.coui.ui.CouiNavigationBar
 import me.hawthorne.coui.ui.CouiNavigationItem
 import me.hawthorne.coui.ui.CouiProgressIndicator
+import me.hawthorne.coui.ui.CouiPreferenceCategory
+import me.hawthorne.coui.ui.CouiPreferenceItem
 import me.hawthorne.coui.ui.CouiRadioButton
 import me.hawthorne.coui.ui.CouiSearchField
 import me.hawthorne.coui.ui.CouiTabItem
@@ -244,6 +246,29 @@ fun App() {
                                     label = "Alternative option",
                                 )
                             }
+                        }
+                    }
+                }
+                item {
+                    CouiCard {
+                        CouiPreferenceCategory(title = "Preferences") {
+                            CouiPreferenceItem(
+                                title = "Component preview",
+                                summary = "Show the latest COUI controls in the sample screen",
+                                trailingContent = {
+                                    CouiSwitch(
+                                        checked = checked,
+                                        onCheckedChange = { checked = it },
+                                        label = "",
+                                    )
+                                },
+                            )
+                            CouiDivider()
+                            CouiPreferenceItem(
+                                title = "Selected style",
+                                summary = listOf("Blue", "Teal", "Neutral")[selectedMenuItem],
+                                onClick = { menuExpanded = true },
+                            )
                         }
                     }
                 }

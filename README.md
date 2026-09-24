@@ -16,6 +16,7 @@ for consistent spacing, shapes, elevation, animation, and screen structure.
 The token set includes values extracted from `oplus-framework-res.apk`, including
 the 58dp alert-dialog button height, 16dp XL corner radius, and popup blur colors.
 Selection layouts can use `CouiSegmentedButton` or the `CouiToggleGroup` shorthand.
+Settings screens can use `CouiPreferenceCategory` and `CouiPreferenceItem`.
 
 * [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
   It contains several subfolders:
