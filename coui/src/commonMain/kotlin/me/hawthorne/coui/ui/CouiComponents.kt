@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -19,9 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
-
-internal val CouiShape = RoundedCornerShape(16.dp)
 
 @Composable
 fun CouiTopBar(
@@ -33,12 +29,12 @@ fun CouiTopBar(
     Surface(
         modifier = modifier.fillMaxWidth(),
         color = MaterialTheme.colorScheme.surface,
-        tonalElevation = 2.dp,
+        tonalElevation = CouiTokens.Elevation.TopBar,
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 12.dp, vertical = 8.dp),
+                .padding(horizontal = CouiTokens.Spacing.Medium, vertical = CouiTokens.Spacing.Small),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             if (navigationIcon != null) {
@@ -65,7 +61,7 @@ fun CouiCard(
         modifier = modifier.fillMaxWidth(),
         shape = CouiShape,
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = CouiTokens.Elevation.Card),
         content = content,
     )
 }

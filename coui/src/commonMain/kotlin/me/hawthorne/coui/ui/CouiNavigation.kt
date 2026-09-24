@@ -35,7 +35,7 @@ fun CouiNavigationBar(
     Surface(
         modifier = modifier.fillMaxWidth(),
         color = MaterialTheme.colorScheme.surface,
-        tonalElevation = 3.dp,
+        tonalElevation = CouiTokens.Elevation.Navigation,
     ) {
         Row(
             modifier = Modifier

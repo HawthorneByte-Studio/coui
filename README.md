@@ -11,6 +11,8 @@ Content patterns include `CouiSearchField`, `CouiIconButton`, and `CouiEmptyStat
 Navigation can use `CouiNavigationBar`, `CouiNavigationItem`, and `CouiBadge`.
 Selection controls include `CouiTabLayout`, `CouiCheckbox`, and `CouiDropdownMenu`.
 Status and compact controls include `CouiChip`, `CouiStepper`, and `CouiInfoBanner`.
+The shared foundation also exposes `CouiTokens`, `CouiMotion`, and `CouiScaffold`
+for consistent spacing, shapes, elevation, animation, and screen structure.
 
 * [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
   It contains several subfolders:
