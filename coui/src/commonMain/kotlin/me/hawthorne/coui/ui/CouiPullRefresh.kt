@@ -25,6 +25,7 @@ fun CouiPullRefresh(
     refreshThreshold: androidx.compose.ui.unit.Dp = 72.dp,
     content: @Composable () -> Unit,
 ) {
+    require(refreshThreshold > 0.dp)
     val density = androidx.compose.ui.platform.LocalDensity.current
     val thresholdPx = with(density) { refreshThreshold.toPx() }
     var dragDistance by remember { mutableFloatStateOf(0f) }
