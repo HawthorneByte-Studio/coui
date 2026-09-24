@@ -21,6 +21,9 @@ class CouiTokensTest {
         assertEquals(48f, CouiTokens.Components.SwitchPreferenceMinHeight.value)
         assertEquals(16f, CouiTokens.Components.RoundCornerXlRadius.value)
         assertEquals(1.1f, CouiTokens.Components.RoundCornerMWeight)
+        assertEquals(32f, CouiTokens.Components.ChipMinHeight.value)
+        assertEquals(22f, CouiTokens.Components.BottomSheetTopCornerRadius.value)
+        assertEquals(17f, CouiTokens.Components.TooltipCornerRadius.value)
     }
 
     @Test

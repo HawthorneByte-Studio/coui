@@ -67,13 +67,20 @@ fun CouiBottomSheet(
         onDismissRequest = onDismissRequest,
         modifier = modifier,
         sheetState = sheetState,
-        shape = CouiShape,
+        shape = RoundedCornerShape(
+            topStart = CouiTokens.Components.BottomSheetTopCornerRadius,
+            topEnd = CouiTokens.Components.BottomSheetTopCornerRadius,
+        ),
+        tonalElevation = CouiTokens.Components.BottomSheetElevation,
         containerColor = MaterialTheme.colorScheme.surface,
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 20.dp, vertical = 12.dp),
+                .padding(
+                    horizontal = CouiTokens.Components.BottomSheetContentHorizontalPadding,
+                    vertical = CouiTokens.Spacing.Medium,
+                ),
             content = content,
         )
     }

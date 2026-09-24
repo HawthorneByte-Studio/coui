@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 @Composable
 fun CouiTooltip(
@@ -40,14 +41,14 @@ fun CouiTooltip(
                 modifier = Modifier
                     .align(Alignment.TopCenter)
                     .offset(y = (-40).dp),
-                shape = CouiShape,
+                shape = RoundedCornerShape(CouiTokens.Components.TooltipCornerRadius),
                 color = MaterialTheme.colorScheme.inverseSurface,
                 contentColor = MaterialTheme.colorScheme.inverseOnSurface,
                 tonalElevation = CouiTokens.Elevation.Card,
             ) {
                 Text(
                     text = message,
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
+                    modifier = Modifier.padding(CouiTokens.Components.TooltipPadding),
                     style = MaterialTheme.typography.bodySmall,
                 )
             }

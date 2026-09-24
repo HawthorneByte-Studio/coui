@@ -72,6 +72,16 @@ object CouiTokens {
         val NavigationItemSpacing = 8.dp
         val NavigationBarHorizontalPadding = 16.dp
         val NavigationItemMaxWidth = 70.dp
+        val ChipMinHeight = 32.dp
+        val ChipHorizontalPadding = 12.dp
+        val ChipGroupSpacing = 8.dp
+        val BottomSheetTopCornerRadius = 22.dp
+        val BottomSheetContentHorizontalPadding = 16.dp
+        val BottomSheetTopMargin = 40.dp
+        val BottomSheetElevation = 17.dp
+        val TooltipCornerRadius = 17.dp
+        val TooltipPadding = 13.dp
+        val TooltipFloatingHorizontalPadding = 16.dp
         val RoundCornerXlRadius = 16.dp
         const val RoundCornerMWeight = 1.1f
         const val RoundCornerXlWeight = 0.99f
