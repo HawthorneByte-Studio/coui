@@ -43,6 +43,12 @@ object CouiColors {
     val OplusBluePressed = Color(0xFF006EE6)
     val OplusGreenPressed = Color(0xFF25B871)
     val OplusDialogDivider = Color(0x0D000000)
+    val SearchBackgroundLight = Color(0x0D000000)
+    val SearchBackgroundDark = Color(0x33FFFFFF)
+    val SearchHintLight = Color(0x23000000)
+    val SearchHintDark = Color(0x66FFFFFF)
+    val DisabledTextLight = Color(0x26000000)
+    val DisabledTextDark = Color(0x4DFFFFFF)
     val LightBackground = Color(0xFFF5F6F8)
     val LightSurface = Color.White
     val LightSurfaceVariant = Color(0xFFEEF0F4)

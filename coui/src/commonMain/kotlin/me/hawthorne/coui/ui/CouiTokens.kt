@@ -75,6 +75,10 @@ object CouiTokens {
         val DarkMixBlur = Color(0xCCB2B2B2)
         val LightBlendBlur = Color(0xFF737373)
         val LightMixBlur = Color(0xCC404040)
+        val LightBackground = Color(0xFFFFFFFF)
+        val DarkBackground = Color(0xFF242424)
+        val LightPressed = Color(0x08000000)
+        val DarkPressed = Color(0x14000000)
         val BackgroundAboveBlur = Color.Transparent
     }
 
