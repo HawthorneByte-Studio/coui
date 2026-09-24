@@ -22,6 +22,8 @@ Calendar screens can use `CouiDatePicker` with the platform-neutral `CouiDate` m
 Time selection screens can use `CouiTimePicker` with the platform-neutral `CouiTime` model.
 Scrollable screens can use `CouiPullRefresh` as the refresh state wrapper.
 Paged content can use `CouiPager` with its built-in page indicators.
+`CouiScaffold` accepts configurable `contentWindowInsets`; the Android sample
+also enables edge-to-edge rendering through `enableEdgeToEdge()`.
 
 * [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
   It contains several subfolders:
