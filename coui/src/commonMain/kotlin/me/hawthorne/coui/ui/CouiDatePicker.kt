@@ -1,6 +1,7 @@
 package me.hawthorne.coui.ui
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -98,6 +99,13 @@ fun CouiDatePicker(
                                 modifier = Modifier
                                     .size(40.dp)
                                     .clip(CircleShape)
+                                    .then(
+                                        if (selected) {
+                                            Modifier.background(MaterialTheme.colorScheme.primary, CircleShape)
+                                        } else {
+                                            Modifier
+                                        },
+                                    )
                                     .clickable { onDateSelected(date) },
                                 contentAlignment = Alignment.Center,
                             ) {
