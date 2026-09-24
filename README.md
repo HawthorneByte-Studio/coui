@@ -1,5 +1,9 @@
 This is a Kotlin Multiplatform project targeting Android.
 
+The `coui` module provides the initial Compose Multiplatform UI foundation under
+`me.hawthorne.coui.ui`, including theme tokens, top bars, cards, buttons, text
+fields, switches, and list items.
+
 * [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
   It contains several subfolders:
   - [commonMain](./shared/src/commonMain/kotlin) is for code that’s common for all targets.

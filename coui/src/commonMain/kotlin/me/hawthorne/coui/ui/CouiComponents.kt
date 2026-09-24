@@ -21,7 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
-private val CouiShape = RoundedCornerShape(16.dp)
+internal val CouiShape = RoundedCornerShape(16.dp)
 
 @Composable
 fun CouiTopBar(

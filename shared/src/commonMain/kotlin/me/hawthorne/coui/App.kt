@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -21,6 +20,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import me.hawthorne.coui.ui.CouiButton
 import me.hawthorne.coui.ui.CouiCard
+import me.hawthorne.coui.ui.CouiListItem
+import me.hawthorne.coui.ui.CouiSwitch
+import me.hawthorne.coui.ui.CouiTextField
 import me.hawthorne.coui.ui.CouiTheme
 import me.hawthorne.coui.ui.CouiTopBar
 
@@ -29,6 +31,7 @@ import me.hawthorne.coui.ui.CouiTopBar
 fun App() {
     CouiTheme {
         var enabled by remember { mutableStateOf(true) }
+        var text by remember { mutableStateOf("") }
         Column(modifier = Modifier.fillMaxSize()) {
             CouiTopBar(title = "COUI")
             LazyColumn(
@@ -57,8 +60,11 @@ fun App() {
                                     .padding(top = 12.dp),
                                 verticalAlignment = Alignment.CenterVertically,
                             ) {
-                                Checkbox(checked = enabled, onCheckedChange = { enabled = it })
-                                Text("Enable COUI theme")
+                                CouiSwitch(
+                                    checked = enabled,
+                                    onCheckedChange = { enabled = it },
+                                    label = "Enable COUI theme",
+                                )
                             }
                         }
                     }
@@ -70,8 +76,23 @@ fun App() {
                             verticalArrangement = Arrangement.spacedBy(12.dp),
                         ) {
                             Text("Actions")
+                            CouiTextField(
+                                value = text,
+                                onValueChange = { text = it },
+                                label = "Name",
+                                placeholder = "Enter a value",
+                            )
                             CouiButton(text = "Primary action", onClick = {}, enabled = enabled)
                         }
+                    }
+                }
+                item {
+                    CouiCard {
+                        CouiListItem(
+                            title = "Component list item",
+                            subtitle = "Reusable title and subtitle layout",
+                            onClick = {},
+                        )
                     }
                 }
             }
