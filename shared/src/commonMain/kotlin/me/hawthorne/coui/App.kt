@@ -50,6 +50,8 @@ import me.hawthorne.coui.ui.CouiStepper
 import me.hawthorne.coui.ui.CouiInfoBanner
 import me.hawthorne.coui.ui.CouiSwitch
 import me.hawthorne.coui.ui.CouiTextField
+import me.hawthorne.coui.ui.CouiTime
+import me.hawthorne.coui.ui.CouiTimePicker
 import me.hawthorne.coui.ui.CouiTheme
 import me.hawthorne.coui.ui.CouiTopBar
 import me.hawthorne.coui.ui.CouiTooltip
@@ -78,6 +80,7 @@ fun App() {
         var selectedDate by remember { mutableStateOf<CouiDate?>(null) }
         var displayedYear by remember { mutableStateOf(2026) }
         var displayedMonth by remember { mutableStateOf(1) }
+        var selectedTime by remember { mutableStateOf(CouiTime(12, 0)) }
         val snackbarHostState = remember { androidx.compose.material3.SnackbarHostState() }
         val scope = rememberCoroutineScope()
         Column(modifier = Modifier.fillMaxSize()) {
@@ -269,6 +272,14 @@ fun App() {
                                 displayedYear = year
                                 displayedMonth = month
                             },
+                        )
+                    }
+                }
+                item {
+                    CouiCard {
+                        CouiTimePicker(
+                            selectedTime = selectedTime,
+                            onTimeSelected = { selectedTime = it },
                         )
                     }
                 }
