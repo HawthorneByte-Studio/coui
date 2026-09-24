@@ -2,6 +2,7 @@ package me.hawthorne.coui.ui
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class CouiDateTimeTest {
     @Test
