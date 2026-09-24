@@ -25,6 +25,8 @@ import me.hawthorne.coui.ui.CouiCard
 import me.hawthorne.coui.ui.CouiCheckbox
 import me.hawthorne.coui.ui.CouiChip
 import me.hawthorne.coui.ui.CouiDialog
+import me.hawthorne.coui.ui.CouiDate
+import me.hawthorne.coui.ui.CouiDatePicker
 import me.hawthorne.coui.ui.CouiDivider
 import me.hawthorne.coui.ui.CouiEmptyState
 import me.hawthorne.coui.ui.CouiIconButton
@@ -73,6 +75,9 @@ fun App() {
         var stepperValue by remember { mutableStateOf(2) }
         var selectedChip by remember { mutableStateOf(0) }
         var selectedSegment by remember { mutableStateOf(0) }
+        var selectedDate by remember { mutableStateOf<CouiDate?>(null) }
+        var displayedYear by remember { mutableStateOf(2026) }
+        var displayedMonth by remember { mutableStateOf(1) }
         val snackbarHostState = remember { androidx.compose.material3.SnackbarHostState() }
         val scope = rememberCoroutineScope()
         Column(modifier = Modifier.fillMaxSize()) {
@@ -251,6 +256,20 @@ fun App() {
                                 )
                             }
                         }
+                    }
+                }
+                item {
+                    CouiCard {
+                        CouiDatePicker(
+                            selectedDate = selectedDate,
+                            onDateSelected = { selectedDate = it },
+                            displayedYear = displayedYear,
+                            displayedMonth = displayedMonth,
+                            onDisplayedMonthChange = { year, month ->
+                                displayedYear = year
+                                displayedMonth = month
+                            },
+                        )
                     }
                 }
                 item {

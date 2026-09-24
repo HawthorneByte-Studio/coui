@@ -18,6 +18,7 @@ the 58dp alert-dialog button height, 16dp XL corner radius, and popup blur color
 Selection layouts can use `CouiSegmentedButton` or the `CouiToggleGroup` shorthand.
 Settings screens can use `CouiPreferenceCategory` and `CouiPreferenceItem`.
 Long-press guidance can use `CouiTooltip` without opting into experimental Material APIs.
+Calendar screens can use `CouiDatePicker` with the platform-neutral `CouiDate` model.
 
 * [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
   It contains several subfolders:
