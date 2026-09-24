@@ -1,5 +1,6 @@
 package me.hawthorne.coui.ui
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -66,11 +67,14 @@ private fun CouiNavigationBarItem(
             Surface(
                 modifier = Modifier.size(32.dp),
                 shape = CircleShape,
-                color = if (item.selected) {
+                color = animateColorAsState(
+                    targetValue = if (item.selected) {
                     CouiColors.BlueContainer
                 } else {
                     Color.Transparent
-                },
+                    },
+                    label = "navigation-selection",
+                ).value,
             ) {
                 Box(contentAlignment = Alignment.Center) {
                     if (item.icon != null) {
@@ -90,11 +94,14 @@ private fun CouiNavigationBarItem(
         Text(
             text = item.label,
             style = MaterialTheme.typography.labelMedium,
-            color = if (item.selected) {
-                MaterialTheme.colorScheme.primary
-            } else {
-                MaterialTheme.colorScheme.onSurfaceVariant
-            },
+            color = animateColorAsState(
+                targetValue = if (item.selected) {
+                    MaterialTheme.colorScheme.primary
+                } else {
+                    MaterialTheme.colorScheme.onSurfaceVariant
+                },
+                label = "navigation-label",
+            ).value,
         )
     }
 }

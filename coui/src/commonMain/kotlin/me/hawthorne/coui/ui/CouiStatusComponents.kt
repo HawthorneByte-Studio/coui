@@ -1,5 +1,6 @@
 package me.hawthorne.coui.ui
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -30,16 +31,22 @@ fun CouiChip(
             },
         ),
         shape = CouiShape,
-        color = if (selected) {
-            CouiColors.BlueContainer
-        } else {
-            MaterialTheme.colorScheme.surfaceVariant
-        },
-        contentColor = if (selected) {
-            CouiColors.BlueOnContainer
-        } else {
-            MaterialTheme.colorScheme.onSurfaceVariant
-        },
+        color = animateColorAsState(
+            targetValue = if (selected) {
+                CouiColors.BlueContainer
+            } else {
+                MaterialTheme.colorScheme.surfaceVariant
+            },
+            label = "chip-background",
+        ).value,
+        contentColor = animateColorAsState(
+            targetValue = if (selected) {
+                CouiColors.BlueOnContainer
+            } else {
+                MaterialTheme.colorScheme.onSurfaceVariant
+            },
+            label = "chip-content",
+        ).value,
     ) {
         Text(
             text = label,
