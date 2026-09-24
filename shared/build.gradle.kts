@@ -52,5 +52,6 @@ kotlin {
 }
 
 dependencies {
+    commonMainImplementation(project(":coui"))
     androidRuntimeClasspath(libs.compose.uiTooling)
 }

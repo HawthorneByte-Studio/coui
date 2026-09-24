@@ -1,47 +1,78 @@
 package me.hawthorne.coui
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import org.jetbrains.compose.resources.painterResource
-
-import coui.shared.generated.resources.Res
-import coui.shared.generated.resources.compose_multiplatform
+import androidx.compose.ui.unit.dp
+import me.hawthorne.coui.ui.CouiButton
+import me.hawthorne.coui.ui.CouiCard
+import me.hawthorne.coui.ui.CouiTheme
+import me.hawthorne.coui.ui.CouiTopBar
 
 @Composable
 @Preview
 fun App() {
-    MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        Column(
-            modifier = Modifier
-                .background(MaterialTheme.colorScheme.primaryContainer)
-                .safeContentPadding()
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
-            }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
+    CouiTheme {
+        var enabled by remember { mutableStateOf(true) }
+        Column(modifier = Modifier.fillMaxSize()) {
+            CouiTopBar(title = "COUI")
+            LazyColumn(
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = PaddingValues(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+            ) {
+                item {
+                    CouiCard {
+                        Column(modifier = Modifier.padding(20.dp)) {
+                            Text("ColorOS UI foundation")
+                            Text(
+                                text = "A Compose Multiplatform starting point for COUI components.",
+                                modifier = Modifier.padding(top = 8.dp),
+                            )
+                        }
+                    }
+                }
+                item {
+                    CouiCard {
+                        Column(modifier = Modifier.padding(20.dp)) {
+                            Text("Controls")
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 12.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Checkbox(checked = enabled, onCheckedChange = { enabled = it })
+                                Text("Enable COUI theme")
+                            }
+                        }
+                    }
+                }
+                item {
+                    CouiCard {
+                        Column(
+                            modifier = Modifier.padding(20.dp),
+                            verticalArrangement = Arrangement.spacedBy(12.dp),
+                        ) {
+                            Text("Actions")
+                            CouiButton(text = "Primary action", onClick = {}, enabled = enabled)
+                        }
+                    }
                 }
             }
         }
