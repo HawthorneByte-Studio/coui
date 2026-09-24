@@ -45,6 +45,11 @@ also enables edge-to-edge rendering through `enableEdgeToEdge()`.
 Use the run configurations provided by the run widget in your IDE's toolbar. You can also use these commands and options:
 
 - Android app: `./gradlew :androidApp:assembleDebug`
+- COUI example app: `./gradlew :exampleApp:assembleDebug`
+
+The `exampleApp` module is a standalone showcase application for the reusable
+COUI components. The existing `androidApp` module remains the original sample
+application.
 
 ### Running tests
 
