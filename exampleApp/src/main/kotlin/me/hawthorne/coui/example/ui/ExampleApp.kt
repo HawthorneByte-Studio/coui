@@ -26,6 +26,7 @@ import me.hawthorne.coui.ui.CouiButton
 import me.hawthorne.coui.ui.CouiCard
 import me.hawthorne.coui.ui.CouiDialog
 import me.hawthorne.coui.ui.CouiInfoBanner
+import me.hawthorne.coui.ui.CouiIcons
 import me.hawthorne.coui.ui.CouiNavigationBar
 import me.hawthorne.coui.ui.CouiNavigationItem
 import me.hawthorne.coui.ui.CouiScaffold
