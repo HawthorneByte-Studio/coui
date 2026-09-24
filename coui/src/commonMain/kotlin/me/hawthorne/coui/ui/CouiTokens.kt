@@ -97,6 +97,8 @@ object CouiTokens {
         val PagerIndicatorSelectedSize = 8.dp
         val PagerIndicatorSize = 6.dp
         val PagerIndicatorSpacing = 4.dp
+        val PullRefreshIndicatorSize = 32.dp
+        val PullRefreshIndicatorTopPadding = 12.dp
         val SliderProgressHeight = 20.dp
         val SliderThumbRadius = 6.dp
         val SnackbarMaxWidth = 328.dp
