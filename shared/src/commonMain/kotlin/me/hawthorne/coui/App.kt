@@ -50,6 +50,7 @@ import me.hawthorne.coui.ui.CouiSwitch
 import me.hawthorne.coui.ui.CouiTextField
 import me.hawthorne.coui.ui.CouiTheme
 import me.hawthorne.coui.ui.CouiTopBar
+import me.hawthorne.coui.ui.CouiTooltip
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -190,6 +191,9 @@ fun App() {
                                 text = "Show snackbar",
                                 onClick = { scope.launch { snackbarHostState.showSnackbar("Action completed") } },
                             )
+                            CouiTooltip(message = "Long press to show this tooltip") {
+                                CouiButton(text = "Long press me", onClick = {})
+                            }
                         }
                     }
                 }
