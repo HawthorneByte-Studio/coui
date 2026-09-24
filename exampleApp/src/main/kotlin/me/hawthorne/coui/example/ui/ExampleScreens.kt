@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -27,6 +28,7 @@ import me.hawthorne.coui.ui.CouiDate
 import me.hawthorne.coui.ui.CouiDatePicker
 import me.hawthorne.coui.ui.CouiEmptyState
 import me.hawthorne.coui.ui.CouiInfoBanner
+import me.hawthorne.coui.ui.CouiIcons
 import me.hawthorne.coui.ui.CouiIconButton
 import me.hawthorne.coui.ui.CouiListItem
 import me.hawthorne.coui.ui.CouiRadioButton
@@ -100,7 +102,7 @@ fun ControlsScreen() {
                     leadingContent = { Text("•", style = MaterialTheme.typography.titleLarge) },
                     trailingContent = {
                         CouiIconButton(onClick = {}) {
-                            Text("+")
+                            Icon(CouiIcons.Add, contentDescription = "Add")
                         }
                     },
                     onClick = {},
