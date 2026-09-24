@@ -31,3 +31,7 @@ The public API lives under `me.hawthorne.coui.ui`.
 `CouiTokens.Components` exposes the shared COUI component heights for buttons,
 top bars, list rows, and alert-dialog actions. `CouiTheme` also provides the
 COUI typography weights and light/dark color surfaces used by the components.
+Picker and interaction metrics are available through the same token group,
+including date/time picker sizes, tab height, pager indicators, and pull-refresh
+indicator sizing. The standalone `exampleApp` demonstrates every public
+component family with interactive controls and overlays.

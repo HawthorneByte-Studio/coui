@@ -28,6 +28,9 @@ Time selection screens can use `CouiTimePicker` with the platform-neutral `CouiT
 Scrollable screens can use `CouiPullRefresh` as the refresh state wrapper.
 The wrapper applies drag damping and exposes progress before the refresh threshold.
 Paged content can use `CouiPager` with its built-in page indicators.
+Picker, tab, pager, and pull-refresh dimensions are exposed through
+`CouiTokens.Components` so applications can keep custom layouts aligned with
+the extracted COUI measurements.
 `CouiScaffold` accepts configurable `contentWindowInsets`; the Android sample
 also enables edge-to-edge rendering through `enableEdgeToEdge()`.
 
