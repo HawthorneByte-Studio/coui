@@ -60,6 +60,11 @@ object CouiTokens {
         val PreferenceItemMinHeight = 48.dp
         val PreferenceHorizontalPadding = 32.dp
         val PreferenceContentSpacing = 16.dp
+        val SwitchPreferenceMinHeight = 48.dp
+        val ListItemNormalHeight = 60.dp
+        val ListItemHorizontalPadding = 16.dp
+        val PreferenceIconVerticalMargin = 14.dp
+        val PreferenceIconEndMargin = 16.dp
         val RoundCornerXlRadius = 16.dp
         const val RoundCornerMWeight = 1.1f
         const val RoundCornerXlWeight = 0.99f

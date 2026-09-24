@@ -17,6 +17,8 @@ class CouiTokensTest {
         assertEquals(48f, CouiTokens.Components.ButtonHeight.value)
         assertEquals(52f, CouiTokens.Components.TopBarHeight.value)
         assertEquals(64f, CouiTokens.Components.ListItemMinHeight.value)
+        assertEquals(60f, CouiTokens.Components.ListItemNormalHeight.value)
+        assertEquals(48f, CouiTokens.Components.SwitchPreferenceMinHeight.value)
         assertEquals(16f, CouiTokens.Components.RoundCornerXlRadius.value)
         assertEquals(1.1f, CouiTokens.Components.RoundCornerMWeight)
     }

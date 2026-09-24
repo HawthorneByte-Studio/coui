@@ -52,7 +52,8 @@ fun CouiSwitch(
         modifier = modifier
             .fillMaxWidth()
             .clickable(enabled = enabled) { onCheckedChange(!checked) }
-            .padding(vertical = 8.dp),
+            .heightIn(min = CouiTokens.Components.SwitchPreferenceMinHeight)
+            .padding(horizontal = CouiTokens.Components.PreferenceHorizontalPadding),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(text = label, modifier = Modifier.weight(1f))
@@ -76,9 +77,9 @@ fun CouiListItem(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .heightIn(min = CouiTokens.Components.ListItemMinHeight)
+            .heightIn(min = CouiTokens.Components.ListItemNormalHeight)
             .then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier)
-            .padding(horizontal = 16.dp, vertical = 12.dp),
+            .padding(horizontal = CouiTokens.Components.ListItemHorizontalPadding),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         if (leadingContent != null) {
