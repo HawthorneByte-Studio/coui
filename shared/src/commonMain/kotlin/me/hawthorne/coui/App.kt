@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import me.hawthorne.coui.ui.CouiButton
 import me.hawthorne.coui.ui.CouiBottomSheet
 import me.hawthorne.coui.ui.CouiCard
+import me.hawthorne.coui.ui.CouiCheckbox
 import me.hawthorne.coui.ui.CouiDialog
 import me.hawthorne.coui.ui.CouiDivider
 import me.hawthorne.coui.ui.CouiEmptyState
@@ -31,6 +32,9 @@ import me.hawthorne.coui.ui.CouiNavigationItem
 import me.hawthorne.coui.ui.CouiProgressIndicator
 import me.hawthorne.coui.ui.CouiRadioButton
 import me.hawthorne.coui.ui.CouiSearchField
+import me.hawthorne.coui.ui.CouiTabItem
+import me.hawthorne.coui.ui.CouiTabLayout
+import me.hawthorne.coui.ui.CouiDropdownMenu
 import me.hawthorne.coui.ui.CouiSection
 import me.hawthorne.coui.ui.CouiSlider
 import me.hawthorne.coui.ui.CouiSnackbarHost
@@ -53,6 +57,10 @@ fun App() {
         var selectedOption by remember { mutableStateOf(0) }
         var query by remember { mutableStateOf("") }
         var selectedTab by remember { mutableStateOf(0) }
+        var selectedSection by remember { mutableStateOf(0) }
+        var checked by remember { mutableStateOf(false) }
+        var menuExpanded by remember { mutableStateOf(false) }
+        var selectedMenuItem by remember { mutableStateOf(0) }
         val snackbarHostState = remember { androidx.compose.material3.SnackbarHostState() }
         val scope = rememberCoroutineScope()
         Column(modifier = Modifier.fillMaxSize()) {
@@ -83,6 +91,16 @@ fun App() {
                 item {
                     CouiCard {
                         Column(modifier = Modifier.padding(20.dp)) {
+                            CouiTabLayout(
+                                items = listOf(
+                                    CouiTabItem("Overview"),
+                                    CouiTabItem("Details"),
+                                    CouiTabItem("Style"),
+                                ),
+                                selectedIndex = selectedSection,
+                                onSelectedIndexChange = { selectedSection = it },
+                            )
+                            CouiDivider(modifier = Modifier.padding(vertical = 8.dp))
                             Text("ColorOS UI foundation")
                             Text(
                                 text = "A Compose Multiplatform starting point for COUI components.",
@@ -100,6 +118,21 @@ fun App() {
                                 onCheckedChange = { enabled = it },
                                 label = "Enable COUI theme",
                                 modifier = Modifier.padding(top = 12.dp),
+                            )
+                            CouiCheckbox(
+                                checked = checked,
+                                onCheckedChange = { checked = it },
+                                label = "Enable component preview",
+                            )
+                            CouiButton(
+                                text = "Choose style: ${listOf("Blue", "Teal", "Neutral")[selectedMenuItem]}",
+                                onClick = { menuExpanded = true },
+                            )
+                            CouiDropdownMenu(
+                                expanded = menuExpanded,
+                                onDismissRequest = { menuExpanded = false },
+                                items = listOf("Blue", "Teal", "Neutral"),
+                                onItemSelected = { selectedMenuItem = it },
                             )
                         }
                     }

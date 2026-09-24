@@ -9,6 +9,7 @@ Feedback and settings layouts can use `CouiSection`, `CouiDivider`, and
 Interactive controls include `CouiSlider`, `CouiRadioButton`, and `CouiSnackbarHost`.
 Content patterns include `CouiSearchField`, `CouiIconButton`, and `CouiEmptyState`.
 Navigation can use `CouiNavigationBar`, `CouiNavigationItem`, and `CouiBadge`.
+Selection controls include `CouiTabLayout`, `CouiCheckbox`, and `CouiDropdownMenu`.
 
 * [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
   It contains several subfolders:
