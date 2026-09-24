@@ -39,8 +39,9 @@ fun CouiTopBar(
                 .heightIn(min = CouiTokens.Components.TopBarHeight)
                 .padding(
                     start = CouiTokens.Components.TopBarTitlePaddingStart,
+                    top = CouiTokens.Spacing.Small,
                     end = CouiTokens.Spacing.Large,
-                    vertical = CouiTokens.Spacing.Small,
+                    bottom = CouiTokens.Spacing.Small,
                 ),
             verticalAlignment = Alignment.CenterVertically,
         ) {
