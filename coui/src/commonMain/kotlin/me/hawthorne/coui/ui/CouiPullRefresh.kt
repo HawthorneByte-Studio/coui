@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.offset
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -27,6 +28,7 @@ fun CouiPullRefresh(
     val density = androidx.compose.ui.platform.LocalDensity.current
     val thresholdPx = with(density) { refreshThreshold.toPx() }
     var dragDistance by remember { mutableFloatStateOf(0f) }
+    val pullOffset = (dragDistance * 0.5f).coerceAtMost(thresholdPx)
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -49,12 +51,25 @@ fun CouiPullRefresh(
             },
         contentAlignment = Alignment.TopCenter,
     ) {
-        content()
+        Box(modifier = Modifier.offset(y = with(density) { pullOffset.toDp() })) {
+            content()
+        }
         if (refreshing) {
             CircularProgressIndicator(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = CouiTokens.Spacing.Medium),
+                    .padding(top = CouiTokens.Spacing.Medium)
+                    .offset(y = with(density) { pullOffset.toDp() }),
+                color = CouiColors.Blue,
+                strokeWidth = 3.dp,
+            )
+        } else if (dragDistance > 0f) {
+            CircularProgressIndicator(
+                progress = { (dragDistance / thresholdPx).coerceIn(0f, 1f) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = CouiTokens.Spacing.Medium)
+                    .offset(y = with(density) { pullOffset.toDp() }),
                 color = CouiColors.Blue,
                 strokeWidth = 3.dp,
             )

@@ -26,6 +26,7 @@ Calendar screens can use `CouiDatePicker` with the platform-neutral `CouiDate` m
 `CouiTimePicker` supports a visible 12/24-hour mode switch and minute snapping.
 Time selection screens can use `CouiTimePicker` with the platform-neutral `CouiTime` model.
 Scrollable screens can use `CouiPullRefresh` as the refresh state wrapper.
+The wrapper applies drag damping and exposes progress before the refresh threshold.
 Paged content can use `CouiPager` with its built-in page indicators.
 `CouiScaffold` accepts configurable `contentWindowInsets`; the Android sample
 also enables edge-to-edge rendering through `enableEdgeToEdge()`.
