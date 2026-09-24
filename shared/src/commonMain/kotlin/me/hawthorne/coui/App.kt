@@ -3,6 +3,7 @@ package me.hawthorne.coui
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -22,6 +23,7 @@ import me.hawthorne.coui.ui.CouiButton
 import me.hawthorne.coui.ui.CouiBottomSheet
 import me.hawthorne.coui.ui.CouiCard
 import me.hawthorne.coui.ui.CouiCheckbox
+import me.hawthorne.coui.ui.CouiChip
 import me.hawthorne.coui.ui.CouiDialog
 import me.hawthorne.coui.ui.CouiDivider
 import me.hawthorne.coui.ui.CouiEmptyState
@@ -38,6 +40,8 @@ import me.hawthorne.coui.ui.CouiDropdownMenu
 import me.hawthorne.coui.ui.CouiSection
 import me.hawthorne.coui.ui.CouiSlider
 import me.hawthorne.coui.ui.CouiSnackbarHost
+import me.hawthorne.coui.ui.CouiStepper
+import me.hawthorne.coui.ui.CouiInfoBanner
 import me.hawthorne.coui.ui.CouiSwitch
 import me.hawthorne.coui.ui.CouiTextField
 import me.hawthorne.coui.ui.CouiTheme
@@ -61,6 +65,8 @@ fun App() {
         var checked by remember { mutableStateOf(false) }
         var menuExpanded by remember { mutableStateOf(false) }
         var selectedMenuItem by remember { mutableStateOf(0) }
+        var stepperValue by remember { mutableStateOf(2) }
+        var selectedChip by remember { mutableStateOf(0) }
         val snackbarHostState = remember { androidx.compose.material3.SnackbarHostState() }
         val scope = rememberCoroutineScope()
         Column(modifier = Modifier.fillMaxSize()) {
@@ -124,6 +130,20 @@ fun App() {
                                 onCheckedChange = { checked = it },
                                 label = "Enable component preview",
                             )
+                            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                                listOf("Blue", "Teal", "Neutral").forEachIndexed { index, label ->
+                                    CouiChip(
+                                        label = label,
+                                        selected = selectedChip == index,
+                                        onClick = { selectedChip = index },
+                                    )
+                                }
+                            }
+                            CouiStepper(
+                                value = stepperValue,
+                                onValueChange = { stepperValue = it },
+                                valueRange = 0..10,
+                            )
                             CouiButton(
                                 text = "Choose style: ${listOf("Blue", "Teal", "Neutral")[selectedMenuItem]}",
                                 onClick = { menuExpanded = true },
@@ -180,6 +200,11 @@ fun App() {
                 }
                 item {
                     CouiSection(title = "Feedback") {
+                        CouiInfoBanner(
+                            title = "COUI foundation",
+                            message = "These components are ready to reuse across screens.",
+                            actionText = "Dismiss",
+                        )
                         CouiCard {
                             Column(modifier = Modifier.padding(20.dp)) {
                                 Text("Loading progress")
