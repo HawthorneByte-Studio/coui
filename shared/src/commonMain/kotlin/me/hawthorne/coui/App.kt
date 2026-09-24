@@ -38,6 +38,7 @@ import me.hawthorne.coui.ui.CouiPullRefresh
 import me.hawthorne.coui.ui.CouiPreferenceCategory
 import me.hawthorne.coui.ui.CouiPreferenceItem
 import me.hawthorne.coui.ui.CouiRadioButton
+import me.hawthorne.coui.ui.CouiPager
 import me.hawthorne.coui.ui.CouiSearchField
 import me.hawthorne.coui.ui.CouiTabItem
 import me.hawthorne.coui.ui.CouiTabLayout
@@ -286,6 +287,16 @@ fun App() {
                             selectedTime = selectedTime,
                             onTimeSelected = { selectedTime = it },
                         )
+                    }
+                }
+                item {
+                    CouiCard {
+                        CouiPager(pageCount = 3) { page ->
+                            CouiEmptyState(
+                                title = "Pager page ${page + 1}",
+                                description = "Swipe horizontally to inspect the next page.",
+                            )
+                        }
                     }
                 }
                 item {

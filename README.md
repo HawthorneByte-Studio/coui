@@ -21,6 +21,7 @@ Long-press guidance can use `CouiTooltip` without opting into experimental Mater
 Calendar screens can use `CouiDatePicker` with the platform-neutral `CouiDate` model.
 Time selection screens can use `CouiTimePicker` with the platform-neutral `CouiTime` model.
 Scrollable screens can use `CouiPullRefresh` as the refresh state wrapper.
+Paged content can use `CouiPager` with its built-in page indicators.
 
 * [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
   It contains several subfolders:
