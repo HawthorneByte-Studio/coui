@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -37,12 +38,14 @@ fun CouiTimePicker(
     Column(
         modifier = modifier
             .fillMaxWidth()
+            .heightIn(min = CouiTokens.Components.TimePickerHeight)
             .padding(CouiTokens.Spacing.Large),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(CouiTokens.Spacing.Medium),
     ) {
         Text(
             text = couiFormatTime(selectedTime),
+            modifier = Modifier.heightIn(min = CouiTokens.Components.TimePickerFocusTextHeight),
             style = MaterialTheme.typography.displaySmall,
             color = MaterialTheme.colorScheme.primary,
         )
@@ -51,6 +54,7 @@ fun CouiTimePicker(
             horizontalArrangement = Arrangement.spacedBy(CouiTokens.Spacing.Small),
         ) {
             CouiStepper(
+                modifier = Modifier.heightIn(min = CouiTokens.Components.TimePickerNormalTextHeight),
                 value = couiDisplayHour(selectedTime),
                 onValueChange = { hour ->
                     onTimeSelected(
@@ -67,6 +71,7 @@ fun CouiTimePicker(
             )
             Text(":", style = MaterialTheme.typography.headlineMedium)
             CouiStepper(
+                modifier = Modifier.heightIn(min = CouiTokens.Components.TimePickerNormalTextHeight),
                 value = couiMinuteIndex(selectedTime.minute, safeStep),
                 onValueChange = { minuteIndex ->
                     onTimeSelected(
