@@ -57,6 +57,7 @@ fun CouiStepper(
     valueRange: IntRange = 0..99,
     enabled: Boolean = true,
 ) {
+    require(!valueRange.isEmpty())
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
