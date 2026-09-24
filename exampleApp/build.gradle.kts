@@ -12,7 +12,6 @@ kotlin {
 }
 
 dependencies {
-    implementation(project(":shared"))
     implementation(project(":coui"))
     implementation(libs.androidx.activity.compose)
     implementation(libs.compose.foundation)
