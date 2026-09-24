@@ -24,8 +24,8 @@ fun CouiTopBar(
     title: String,
     modifier: Modifier = Modifier,
     navigationIcon: (@Composable () -> Unit)? = null,
-    onNavigationClick: () -> Unit = {},
     actions: (@Composable () -> Unit)? = null,
+    onNavigationClick: () -> Unit = {},
 ) {
     Surface(
         modifier = modifier.fillMaxWidth(),
