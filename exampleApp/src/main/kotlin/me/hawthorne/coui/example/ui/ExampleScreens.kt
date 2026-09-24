@@ -16,16 +16,20 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import me.hawthorne.coui.ui.CouiButton
+import me.hawthorne.coui.ui.CouiButtonGroup
 import me.hawthorne.coui.ui.CouiCard
 import me.hawthorne.coui.ui.CouiCheckbox
 import me.hawthorne.coui.ui.CouiDate
 import me.hawthorne.coui.ui.CouiDatePicker
 import me.hawthorne.coui.ui.CouiEmptyState
 import me.hawthorne.coui.ui.CouiInfoBanner
+import me.hawthorne.coui.ui.CouiIconButton
+import me.hawthorne.coui.ui.CouiListItem
 import me.hawthorne.coui.ui.CouiRadioButton
 import me.hawthorne.coui.ui.CouiSearchField
 import me.hawthorne.coui.ui.CouiSegment
 import me.hawthorne.coui.ui.CouiSegmentedButton
+import me.hawthorne.coui.ui.CouiSection
 import me.hawthorne.coui.ui.CouiSlider
 import me.hawthorne.coui.ui.CouiStepper
 import me.hawthorne.coui.ui.CouiSwitch
@@ -80,6 +84,25 @@ fun ControlsScreen() {
                 CouiTextField(value = text, onValueChange = { text = it }, label = "Text field")
                 CouiSwitch(checked = enabled, onCheckedChange = { enabled = it }, label = "Enabled controls")
                 CouiCheckbox(checked = checked, onCheckedChange = { checked = it }, label = "Accept settings")
+            }
+        }
+        CouiCard {
+            CouiSection(title = "Content and actions") {
+                CouiListItem(
+                    title = "Interactive list item",
+                    subtitle = "Tap the row or the trailing icon",
+                    leadingContent = { Text("•", style = MaterialTheme.typography.titleLarge) },
+                    trailingContent = {
+                        CouiIconButton(onClick = {}) {
+                            Text("+")
+                        }
+                    },
+                    onClick = {},
+                )
+                CouiButtonGroup(modifier = Modifier.padding(16.dp)) {
+                    CouiButton(text = "Primary action", onClick = {})
+                    CouiButton(text = "Disabled action", onClick = {}, enabled = false)
+                }
             }
         }
         CouiCard {
