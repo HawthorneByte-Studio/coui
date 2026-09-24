@@ -256,7 +256,7 @@ object CouiIcons {
     }
 
     val AccountCircle: ImageVector by lazy {
-        ImageVector.Builder(CouiAccountCircle, 24.dp, 24.dp, 24f, 24f).apply {
+        ImageVector.Builder("CouiAccountCircle", 24.dp, 24.dp, 24f, 24f).apply {
             path(fill = SolidColor(Color.Black)) {
                 moveTo(12f, 2f)
                 curveTo(6.48f, 2f, 2f, 6.48f, 2f, 12f)
@@ -281,7 +281,7 @@ object CouiIcons {
     }
 
     val Share: ImageVector by lazy {
-        ImageVector.Builder(CouiShare, 24.dp, 24.dp, 24f, 24f).apply {
+        ImageVector.Builder("CouiShare", 24.dp, 24.dp, 24f, 24f).apply {
             path(fill = SolidColor(Color.Black)) {
                 moveTo(18f, 16f)
                 curveTo(17.24f, 16f, 16.56f, 16.3f, 16.04f, 16.77f)
@@ -310,7 +310,7 @@ object CouiIcons {
     }
 
     val Document: ImageVector by lazy {
-        ImageVector.Builder(CouiDocument, 24.dp, 24.dp, 24f, 24f).apply {
+        ImageVector.Builder("CouiDocument", 24.dp, 24.dp, 24f, 24f).apply {
             path(fill = SolidColor(Color.Black)) {
                 moveTo(14f, 2f)
                 horizontalLineTo(6f)
