@@ -31,7 +31,7 @@ import me.hawthorne.coui.ui.CouiSnackbarHost
 import me.hawthorne.coui.ui.CouiTheme
 import me.hawthorne.coui.ui.CouiTopBar
 
-private val destinations = listOf("Home", "Controls", "Pickers")
+private val destinations = listOf("Home", "Controls", "Pickers", "More")
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -72,7 +72,8 @@ fun ExampleApp() {
                             },
                         )
                         1 -> ControlsScreen()
-                        else -> PickersScreen()
+                        2 -> PickersScreen()
+                        else -> MoreScreen()
                     }
                 }
             }

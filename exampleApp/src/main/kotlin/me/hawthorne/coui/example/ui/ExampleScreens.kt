@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,6 +32,18 @@ import me.hawthorne.coui.ui.CouiSwitch
 import me.hawthorne.coui.ui.CouiTextField
 import me.hawthorne.coui.ui.CouiTime
 import me.hawthorne.coui.ui.CouiTimePicker
+import me.hawthorne.coui.ui.CouiBadge
+import me.hawthorne.coui.ui.CouiChip
+import me.hawthorne.coui.ui.CouiDivider
+import me.hawthorne.coui.ui.CouiDropdownMenu
+import me.hawthorne.coui.ui.CouiPager
+import me.hawthorne.coui.ui.CouiPreferenceCategory
+import me.hawthorne.coui.ui.CouiPreferenceItem
+import me.hawthorne.coui.ui.CouiProgressIndicator
+import me.hawthorne.coui.ui.CouiTabItem
+import me.hawthorne.coui.ui.CouiTabLayout
+import me.hawthorne.coui.ui.CouiTooltip
+import me.hawthorne.coui.ui.CouiPullRefresh
 
 @Composable
 fun HomeScreen(onDialog: () -> Unit, onSheet: () -> Unit, onSnackbar: () -> Unit) {
@@ -103,5 +117,72 @@ fun PickersScreen() {
             )
         }
         CouiCard { CouiTimePicker(selectedTime = time, onTimeSelected = { time = it }, minuteStep = 5) }
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun MoreScreen() {
+    var tab by remember { mutableStateOf(0) }
+    var menuExpanded by remember { mutableStateOf(false) }
+    var menuItem by remember { mutableStateOf(0) }
+    var chip by remember { mutableStateOf(0) }
+    var refreshing by remember { mutableStateOf(false) }
+    var progress by remember { mutableStateOf(0.4f) }
+    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        CouiCard {
+            Column(modifier = Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                CouiTabLayout(
+                    items = listOf(CouiTabItem("Overview"), CouiTabItem("Details"), CouiTabItem("Style")),
+                    selectedIndex = tab,
+                    onSelectedIndexChange = { tab = it },
+                )
+                CouiDivider()
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    CouiChip(label = "Selected", selected = chip == 0, onClick = { chip = 0 })
+                    CouiChip(label = "Filter", selected = chip == 1, onClick = { chip = 1 })
+                    CouiBadge(label = "3")
+                }
+                CouiTooltip(message = "Long press to show tooltip") {
+                    CouiButton(text = "Tooltip target", onClick = {})
+                }
+            }
+        }
+        CouiCard {
+            CouiPreferenceCategory(title = "Preferences") {
+                CouiPreferenceItem(
+                    title = "Selected option",
+                    summary = listOf("Blue", "Teal", "Neutral")[menuItem],
+                    onClick = { menuExpanded = true },
+                )
+                CouiDropdownMenu(
+                    expanded = menuExpanded,
+                    onDismissRequest = { menuExpanded = false },
+                    items = listOf("Blue", "Teal", "Neutral"),
+                    onItemSelected = { menuItem = it },
+                )
+            }
+        }
+        CouiCard {
+            Column(modifier = Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                Text("Progress", style = MaterialTheme.typography.titleMedium)
+                CouiProgressIndicator(progress = progress)
+                CouiButton(text = "Advance", onClick = { progress = (progress + 0.2f).coerceAtMost(1f) })
+            }
+        }
+        CouiCard {
+            CouiPager(modifier = Modifier.height(200.dp), pageCount = 3) { page ->
+                CouiEmptyState(title = "Pager page ${page + 1}", description = "Swipe horizontally")
+            }
+        }
+        CouiCard {
+            CouiPullRefresh(
+                refreshing = refreshing,
+                onRefresh = { refreshing = false },
+                modifier = Modifier.height(180.dp).padding(20.dp),
+            ) {
+                CouiEmptyState(title = "Pull to refresh", description = "Drag down on this card")
+            }
+        }
     }
 }
