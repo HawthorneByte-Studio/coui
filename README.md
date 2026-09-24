@@ -23,6 +23,7 @@ See [`coui/API.md`](./coui/API.md) for the current component surface and
 [`CHANGELOG.md`](./CHANGELOG.md) for the development history.
 Calendar screens can use `CouiDatePicker` with the platform-neutral `CouiDate` model.
 `CouiDatePicker` also supports optional `minDate`, `maxDate`, and `today` constraints.
+`CouiTimePicker` supports a visible 12/24-hour mode switch and minute snapping.
 Time selection screens can use `CouiTimePicker` with the platform-neutral `CouiTime` model.
 Scrollable screens can use `CouiPullRefresh` as the refresh state wrapper.
 Paged content can use `CouiPager` with its built-in page indicators.

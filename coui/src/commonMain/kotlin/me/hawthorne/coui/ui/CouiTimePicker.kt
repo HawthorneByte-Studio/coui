@@ -72,6 +72,17 @@ fun CouiTimePicker(
                 valueRange = 0..(59 / safeStep),
             )
         }
+        CouiSegmentedButton(
+            segments = listOf(CouiSegment("24-hour"), CouiSegment("12-hour")),
+            selectedIndex = if (selectedTime.is24Hour) 0 else 1,
+            onSelectedIndexChange = { mode ->
+                val use24Hour = mode == 0
+                if (use24Hour != selectedTime.is24Hour) {
+                    onTimeSelected(selectedTime.copy(is24Hour = use24Hour))
+                }
+            },
+            modifier = Modifier.fillMaxWidth(),
+        )
         if (!selectedTime.is24Hour) {
             CouiSegmentedButton(
                 segments = listOf(CouiSegment("AM"), CouiSegment("PM")),
@@ -86,7 +97,7 @@ fun CouiTimePicker(
             )
         }
         Text(
-            text = "Minute step: $safeStep",
+            text = "Minute step: $safeStep - values snap to ${safeStep}-minute intervals",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
