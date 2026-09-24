@@ -26,6 +26,8 @@ import me.hawthorne.coui.ui.CouiDivider
 import me.hawthorne.coui.ui.CouiEmptyState
 import me.hawthorne.coui.ui.CouiIconButton
 import me.hawthorne.coui.ui.CouiListItem
+import me.hawthorne.coui.ui.CouiNavigationBar
+import me.hawthorne.coui.ui.CouiNavigationItem
 import me.hawthorne.coui.ui.CouiProgressIndicator
 import me.hawthorne.coui.ui.CouiRadioButton
 import me.hawthorne.coui.ui.CouiSearchField
@@ -50,12 +52,15 @@ fun App() {
         var sliderValue by remember { mutableStateOf(0.5f) }
         var selectedOption by remember { mutableStateOf(0) }
         var query by remember { mutableStateOf("") }
+        var selectedTab by remember { mutableStateOf(0) }
         val snackbarHostState = remember { androidx.compose.material3.SnackbarHostState() }
         val scope = rememberCoroutineScope()
         Column(modifier = Modifier.fillMaxSize()) {
             CouiTopBar(title = "COUI")
             LazyColumn(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .weight(1f),
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp),
             ) {
@@ -174,6 +179,26 @@ fun App() {
                     }
                 }
             }
+            CouiNavigationBar(
+                items = listOf(
+                    CouiNavigationItem(
+                        label = "Home",
+                        selected = selectedTab == 0,
+                        onClick = { selectedTab = 0 },
+                    ),
+                    CouiNavigationItem(
+                        label = "Components",
+                        selected = selectedTab == 1,
+                        onClick = { selectedTab = 1 },
+                        badge = "3",
+                    ),
+                    CouiNavigationItem(
+                        label = "Settings",
+                        selected = selectedTab == 2,
+                        onClick = { selectedTab = 2 },
+                    ),
+                ),
+            )
         }
         if (dialogVisible) {
             CouiDialog(
