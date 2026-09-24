@@ -94,6 +94,9 @@ object CouiTokens {
         val TabLayoutHeight = 48.dp
         val TabIndicatorHeight = 2.dp
         val TabHorizontalPadding = 16.dp
+        val PagerIndicatorSelectedSize = 8.dp
+        val PagerIndicatorSize = 6.dp
+        val PagerIndicatorSpacing = 4.dp
         val SliderProgressHeight = 20.dp
         val SliderThumbRadius = 6.dp
         val SnackbarMaxWidth = 328.dp
