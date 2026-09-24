@@ -26,6 +26,7 @@ fun CouiPager(
     pagerState: PagerState = rememberPagerState(pageCount = { pageCount }),
     pageContent: @Composable (Int) -> Unit,
 ) {
+    require(pageCount > 0)
     Column(modifier = modifier.fillMaxWidth()) {
         HorizontalPager(
             state = pagerState,
