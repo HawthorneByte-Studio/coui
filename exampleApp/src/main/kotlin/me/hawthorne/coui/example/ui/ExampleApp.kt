@@ -5,4 +5,4 @@ import androidx.compose.runtime.Composable
 import me.hawthorne.coui.ui.CouiTheme
 
 @Composable
-fun ExampleApp() = CouiTheme { Text(COUI) }
+fun ExampleApp() = CouiTheme { Text(text = String(charArrayOf('C', 'O', 'U', 'I'))) }
