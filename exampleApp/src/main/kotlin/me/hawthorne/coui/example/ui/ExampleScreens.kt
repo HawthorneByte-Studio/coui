@@ -15,6 +15,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.delay`nimport kotlinx.coroutines.launch
+import androidx.compose.runtime.rememberCoroutineScope
 import me.hawthorne.coui.ui.CouiButton
 import me.hawthorne.coui.ui.CouiButtonGroup
 import me.hawthorne.coui.ui.CouiCard
@@ -152,6 +154,7 @@ fun MoreScreen() {
     var chip by remember { mutableStateOf(0) }
     var refreshing by remember { mutableStateOf(false) }
     var progress by remember { mutableStateOf(0.4f) }
+    val refreshScope = rememberCoroutineScope()
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
         CouiCard {
             Column(modifier = Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -201,7 +204,15 @@ fun MoreScreen() {
         CouiCard {
             CouiPullRefresh(
                 refreshing = refreshing,
-                onRefresh = { refreshing = false },
+                onRefresh = {
+                    if (!refreshing) {
+                        refreshing = true
+                        refreshScope.launch {
+                            delay(900)
+                            refreshing = false
+                        }
+                    }
+                },
                 modifier = Modifier.height(180.dp).padding(20.dp),
             ) {
                 CouiEmptyState(title = "Pull to refresh", description = "Drag down on this card")
