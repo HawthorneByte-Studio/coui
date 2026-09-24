@@ -33,4 +33,29 @@ class CouiDateTimeTest {
         assertEquals(true, CouiDate(2026, 2, 1) > CouiDate(2026, 1, 31))
         assertEquals(true, CouiDate(2025, 12, 31) < CouiDate(2026, 1, 1))
     }
+
+    @Test
+    fun timeFormattingSupports24And12HourModes() {
+        assertEquals("00:05", couiFormatTime(CouiTime(0, 5)))
+        assertEquals("12:05 AM", couiFormatTime(CouiTime(0, 5, is24Hour = false)))
+        assertEquals("12:05 PM", couiFormatTime(CouiTime(12, 5, is24Hour = false)))
+        assertEquals("11:05 PM", couiFormatTime(CouiTime(23, 5, is24Hour = false)))
+    }
+
+    @Test
+    fun timeHourConversionPreservesPeriod() {
+        assertEquals(13, couiNormalizeHour(1, is24Hour = false, isPm = true))
+        assertEquals(1, couiNormalizeHour(1, is24Hour = false, isPm = false))
+        assertEquals(23, couiNormalizeHour(23, is24Hour = true, isPm = true))
+        assertEquals(12, couiDisplayHour(CouiTime(0, 0, is24Hour = false)))
+        assertEquals(12, couiDisplayHour(CouiTime(12, 0, is24Hour = false)))
+    }
+
+    @Test
+    fun minuteValueMapsStepperIndexToConfiguredStep() {
+        assertEquals(0, couiMinuteValue(0, 15))
+        assertEquals(15, couiMinuteValue(1, 15))
+        assertEquals(45, couiMinuteValue(3, 15))
+        assertEquals(59, couiMinuteValue(99, 15))
+    }
 }

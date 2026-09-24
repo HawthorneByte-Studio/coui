@@ -36,7 +36,7 @@ fun CouiTimePicker(
         verticalArrangement = Arrangement.spacedBy(CouiTokens.Spacing.Medium),
     ) {
         Text(
-            text = formatTime(selectedTime),
+            text = couiFormatTime(selectedTime),
             style = MaterialTheme.typography.displaySmall,
             color = MaterialTheme.colorScheme.primary,
         )
@@ -45,11 +45,11 @@ fun CouiTimePicker(
             horizontalArrangement = Arrangement.spacedBy(CouiTokens.Spacing.Small),
         ) {
             CouiStepper(
-                value = displayHour(selectedTime),
+                value = couiDisplayHour(selectedTime),
                 onValueChange = { hour ->
                     onTimeSelected(
                         selectedTime.copy(
-                            hour = normalizeHour(
+                            hour = couiNormalizeHour(
                                 hour = hour,
                                 is24Hour = selectedTime.is24Hour,
                                 isPm = selectedTime.hour >= 12,
@@ -65,7 +65,7 @@ fun CouiTimePicker(
                 onValueChange = { minuteIndex ->
                     onTimeSelected(
                         selectedTime.copy(
-                            minute = (minuteIndex * safeStep).coerceIn(0, 59),
+                            minute = couiMinuteValue(minuteIndex, safeStep),
                         ),
                     )
                 },
@@ -104,7 +104,7 @@ fun CouiTimePicker(
     }
 }
 
-private fun displayHour(time: CouiTime): Int {
+internal fun couiDisplayHour(time: CouiTime): Int {
     if (time.is24Hour) return time.hour.coerceIn(0, 23)
     return when (val hour = time.hour % 12) {
         0 -> 12
@@ -112,17 +112,20 @@ private fun displayHour(time: CouiTime): Int {
     }
 }
 
-private fun normalizeHour(hour: Int, is24Hour: Boolean, isPm: Boolean): Int {
+internal fun couiNormalizeHour(hour: Int, is24Hour: Boolean, isPm: Boolean): Int {
     if (is24Hour) return hour.coerceIn(0, 23)
     val normalized = hour.coerceIn(1, 12) % 12
     return if (isPm) normalized + 12 else normalized
 }
 
-private fun formatTime(time: CouiTime): String {
-    val hour = if (time.is24Hour) time.hour else displayHour(time)
+internal fun couiFormatTime(time: CouiTime): String {
+    val hour = if (time.is24Hour) time.hour else couiDisplayHour(time)
     val period = if (!time.is24Hour) if (time.hour >= 12) " PM" else " AM" else ""
     return "%02d:%02d%s".format(hour, time.minute, period)
 }
 
 internal fun couiMinuteIndex(minute: Int, step: Int): Int =
     minute.coerceIn(0, 59) / step
+
+internal fun couiMinuteValue(index: Int, step: Int): Int =
+    (index.coerceAtLeast(0) * step.coerceIn(1, 30)).coerceIn(0, 59)
