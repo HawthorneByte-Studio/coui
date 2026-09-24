@@ -35,6 +35,14 @@ class CouiDateTimeTest {
     }
 
     @Test
+    fun dateAndTimeModelsRejectInvalidValues() {
+        assertFailsWith<IllegalArgumentException> { CouiDate(2026, 13, 1) }
+        assertFailsWith<IllegalArgumentException> { CouiDate(2026, 2, 30) }
+        assertFailsWith<IllegalArgumentException> { CouiTime(24, 0) }
+        assertFailsWith<IllegalArgumentException> { CouiTime(12, 60) }
+    }
+
+    @Test
     fun timeFormattingSupports24And12HourModes() {
         assertEquals("00:05", couiFormatTime(CouiTime(0, 5)))
         assertEquals("12:05 AM", couiFormatTime(CouiTime(0, 5, is24Hour = false)))

@@ -17,6 +17,12 @@ data class CouiTime(
     val minute: Int,
     val is24Hour: Boolean = true,
 )
+{
+    init {
+        require(hour in 0..23)
+        require(minute in 0..59)
+    }
+}
 
 @Composable
 fun CouiTimePicker(

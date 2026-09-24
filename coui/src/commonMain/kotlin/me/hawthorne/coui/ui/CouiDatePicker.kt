@@ -23,6 +23,11 @@ data class CouiDate(
     val month: Int,
     val day: Int,
 ) : Comparable<CouiDate> {
+    init {
+        require(month in 1..12)
+        require(day in 1..couiDaysInMonth(year, month))
+    }
+
     override fun compareTo(other: CouiDate): Int = compareValuesBy(
         this,
         other,
