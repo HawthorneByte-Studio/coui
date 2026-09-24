@@ -24,6 +24,8 @@ fun CouiSegmentedButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) {
+    require(segments.isNotEmpty())
+    require(selectedIndex in segments.indices)
     Row(
         modifier = modifier.fillMaxWidth(),
     ) {
