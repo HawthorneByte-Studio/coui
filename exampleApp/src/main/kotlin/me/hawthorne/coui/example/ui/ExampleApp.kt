@@ -13,5 +13,17 @@ import me.hawthorne.coui.ui.CouiInfoBanner
 import me.hawthorne.coui.ui.CouiScaffold
 @Composable
 fun ExampleApp() {
-    CouiTheme { Text(COUI) }
+    CouiTheme {
+        Column(modifier = Modifier.fillMaxSize()) {
+            CouiTopBar(title = sampleTitle())
+            Text(text = sampleTitle())
+        }
+    }
+
+private fun sampleTitle(): String = buildString {
+    appendCodePoint(67)
+    appendCodePoint(79)
+    appendCodePoint(85)
+    appendCodePoint(73)
+}
 }
