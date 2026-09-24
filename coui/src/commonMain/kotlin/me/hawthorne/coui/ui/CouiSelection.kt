@@ -42,8 +42,9 @@ fun CouiTabLayout(
                 text = item.label,
                 modifier = Modifier
                     .weight(1f)
+                    .heightIn(min = CouiTokens.Components.TabLayoutHeight)
                     .clickable { onSelectedIndexChange(index) }
-                    .padding(horizontal = 12.dp, vertical = 10.dp),
+                    .padding(horizontal = CouiTokens.Components.TabHorizontalPadding, vertical = 10.dp),
                 color = if (selected) {
                     MaterialTheme.colorScheme.primary
                 } else {

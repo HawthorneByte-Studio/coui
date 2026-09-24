@@ -4,6 +4,7 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -35,6 +36,7 @@ fun CouiSegmentedButton(
             Surface(
                 modifier = Modifier
                     .weight(1f)
+                    .heightIn(min = CouiTokens.Components.TabLayoutHeight)
                     .clickable(enabled = enabled) { onSelectedIndexChange(index) },
                 shape = when (index) {
                     0 -> RoundedCornerShape(
@@ -66,7 +68,10 @@ fun CouiSegmentedButton(
             ) {
                 Text(
                     text = segment.label,
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
+                    modifier = Modifier.padding(
+                        horizontal = CouiTokens.Components.TabHorizontalPadding,
+                        vertical = 10.dp,
+                    ),
                     style = MaterialTheme.typography.labelLarge,
                 )
             }
