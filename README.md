@@ -18,6 +18,7 @@ the 58dp alert-dialog button height, 16dp XL corner radius, and popup blur color
 Selection layouts can use `CouiSegmentedButton` or the `CouiToggleGroup` shorthand.
 Settings screens can use `CouiPreferenceCategory` and `CouiPreferenceItem`.
 Long-press guidance can use `CouiTooltip` without opting into experimental Material APIs.
+The `coui` module also includes reusable Compose previews in `CouiPreviews.kt`.
 Calendar screens can use `CouiDatePicker` with the platform-neutral `CouiDate` model.
 Time selection screens can use `CouiTimePicker` with the platform-neutral `CouiTime` model.
 Scrollable screens can use `CouiPullRefresh` as the refresh state wrapper.
