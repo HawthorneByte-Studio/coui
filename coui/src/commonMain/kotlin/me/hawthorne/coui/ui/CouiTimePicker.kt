@@ -61,11 +61,15 @@ fun CouiTimePicker(
             )
             Text(":", style = MaterialTheme.typography.headlineMedium)
             CouiStepper(
-                value = selectedTime.minute,
-                onValueChange = { minute ->
-                    onTimeSelected(selectedTime.copy(minute = minute.coerceIn(0, 59)))
+                value = minuteIndex(selectedTime.minute, safeStep),
+                onValueChange = { minuteIndex ->
+                    onTimeSelected(
+                        selectedTime.copy(
+                            minute = (minuteIndex * safeStep).coerceIn(0, 59),
+                        ),
+                    )
                 },
-                valueRange = 0..59,
+                valueRange = 0..(59 / safeStep),
             )
         }
         if (!selectedTime.is24Hour) {
@@ -108,3 +112,6 @@ private fun formatTime(time: CouiTime): String {
     val period = if (!time.is24Hour) if (time.hour >= 12) " PM" else " AM" else ""
     return "%02d:%02d%s".format(hour, time.minute, period)
 }
+
+private fun minuteIndex(minute: Int, step: Int): Int =
+    minute.coerceIn(0, 59) / step
