@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -41,11 +43,15 @@ fun CouiNavigationBar(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 8.dp, vertical = 6.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly,
+                .heightIn(min = CouiTokens.Components.NavigationBarHeight)
+                .padding(horizontal = CouiTokens.Components.NavigationBarHorizontalPadding),
+            horizontalArrangement = Arrangement.spacedBy(
+                CouiTokens.Components.NavigationItemSpacing,
+                Alignment.CenterHorizontally,
+            ),
         ) {
             items.forEach { item ->
-                CouiNavigationBarItem(item = item, modifier = Modifier.weight(1f))
+                CouiNavigationBarItem(item = item)
             }
         }
     }
@@ -58,10 +64,12 @@ private fun CouiNavigationBarItem(
 ) {
     Column(
         modifier = modifier
+            .widthIn(max = CouiTokens.Components.NavigationItemMaxWidth)
+            .heightIn(min = CouiTokens.Components.NavigationItemHeight)
             .clickable(onClick = item.onClick)
-            .padding(vertical = 4.dp),
+            .padding(top = CouiTokens.Components.NavigationItemIconTopMargin),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(4.dp),
+        verticalArrangement = Arrangement.spacedBy(CouiTokens.Components.NavigationItemIconLabelGap),
     ) {
         Box(contentAlignment = Alignment.TopEnd) {
             Surface(
@@ -69,9 +77,9 @@ private fun CouiNavigationBarItem(
                 shape = CircleShape,
                 color = animateColorAsState(
                     targetValue = if (item.selected) {
-                    CouiColors.BlueContainer
-                } else {
-                    Color.Transparent
+                        CouiColors.BlueContainer
+                    } else {
+                        Color.Transparent
                     },
                     label = "navigation-selection",
                 ).value,

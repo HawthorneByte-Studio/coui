@@ -65,6 +65,13 @@ object CouiTokens {
         val ListItemHorizontalPadding = 16.dp
         val PreferenceIconVerticalMargin = 14.dp
         val PreferenceIconEndMargin = 16.dp
+        val NavigationBarHeight = 56.dp
+        val NavigationItemHeight = 48.dp
+        val NavigationItemIconTopMargin = 4.dp
+        val NavigationItemIconLabelGap = 2.dp
+        val NavigationItemSpacing = 8.dp
+        val NavigationBarHorizontalPadding = 16.dp
+        val NavigationItemMaxWidth = 70.dp
         val RoundCornerXlRadius = 16.dp
         const val RoundCornerMWeight = 1.1f
         const val RoundCornerXlWeight = 0.99f
