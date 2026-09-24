@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -19,12 +20,16 @@ import me.hawthorne.coui.ui.CouiButton
 import me.hawthorne.coui.ui.CouiBottomSheet
 import me.hawthorne.coui.ui.CouiCard
 import me.hawthorne.coui.ui.CouiDialog
+import me.hawthorne.coui.ui.CouiDivider
 import me.hawthorne.coui.ui.CouiListItem
+import me.hawthorne.coui.ui.CouiProgressIndicator
+import me.hawthorne.coui.ui.CouiSection
 import me.hawthorne.coui.ui.CouiSwitch
 import me.hawthorne.coui.ui.CouiTextField
 import me.hawthorne.coui.ui.CouiTheme
 import me.hawthorne.coui.ui.CouiTopBar
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 @Preview
 fun App() {
@@ -33,6 +38,7 @@ fun App() {
         var text by remember { mutableStateOf("") }
         var dialogVisible by remember { mutableStateOf(false) }
         var sheetVisible by remember { mutableStateOf(false) }
+        var progress by remember { mutableStateOf(0.6f) }
         Column(modifier = Modifier.fillMaxSize()) {
             CouiTopBar(title = "COUI")
             LazyColumn(
@@ -90,6 +96,24 @@ fun App() {
                             subtitle = "Reusable title and subtitle layout",
                             onClick = {},
                         )
+                    }
+                }
+                item {
+                    CouiSection(title = "Feedback") {
+                        CouiCard {
+                            Column(modifier = Modifier.padding(20.dp)) {
+                                Text("Loading progress")
+                                CouiProgressIndicator(
+                                    progress = progress,
+                                    modifier = Modifier.padding(top = 12.dp),
+                                )
+                                CouiDivider(modifier = Modifier.padding(vertical = 16.dp))
+                                CouiButton(
+                                    text = "Advance",
+                                    onClick = { progress = (progress + 0.1f).coerceAtMost(1f) },
+                                )
+                            }
+                        }
                     }
                 }
             }

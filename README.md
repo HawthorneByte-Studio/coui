@@ -4,6 +4,8 @@ The `coui` module provides the initial Compose Multiplatform UI foundation under
 `me.hawthorne.coui.ui`, including theme tokens, top bars, cards, buttons, text
 fields, switches, and list items.
 It also includes `CouiDialog` and `CouiBottomSheet` for common overlay patterns.
+Feedback and settings layouts can use `CouiSection`, `CouiDivider`, and
+`CouiProgressIndicator`.
 
 * [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
   It contains several subfolders:
