@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -56,7 +57,15 @@ fun CouiDatePicker(
     onTodayClick: (CouiDate) -> Unit = onDateSelected,
 ) {
     val safeMonth = displayedMonth.coerceIn(1, 12)
-    Column(modifier = modifier.fillMaxWidth().padding(CouiTokens.Spacing.Large)) {
+    val displayedFirstDate = CouiDate(displayedYear, safeMonth, 1)
+    val displayedLastDate = CouiDate(displayedYear, safeMonth, couiDaysInMonth(displayedYear, safeMonth))
+    val canGoPrevious = minDate == null || displayedFirstDate > minDate
+    val canGoNext = maxDate == null || displayedLastDate < maxDate
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = CouiTokens.Components.DatePickerHorizontalPadding),
+    ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -64,6 +73,7 @@ fun CouiDatePicker(
         ) {
             CouiButton(
                 text = "Prev",
+                enabled = canGoPrevious,
                 onClick = {
                     val previousMonth = if (safeMonth == 1) 12 else safeMonth - 1
                     val previousYear = if (safeMonth == 1) displayedYear - 1 else displayedYear
@@ -76,6 +86,7 @@ fun CouiDatePicker(
             )
             CouiButton(
                 text = "Next",
+                enabled = canGoNext,
                 onClick = {
                     val nextMonth = if (safeMonth == 12) 1 else safeMonth + 1
                     val nextYear = if (safeMonth == 12) displayedYear + 1 else displayedYear
@@ -99,7 +110,9 @@ fun CouiDatePicker(
             listOf("M", "T", "W", "T", "F", "S", "S").forEach { label ->
                 Text(
                     text = label,
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier
+                        .weight(1f)
+                        .heightIn(min = CouiTokens.Components.DatePickerWeekdayHeight),
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -123,7 +136,7 @@ fun CouiDatePicker(
                             val enabled = isDateInRange(date, minDate, maxDate)
                             Box(
                                 modifier = Modifier
-                                    .size(40.dp)
+                                    .size(CouiTokens.Components.DatePickerDaySize)
                                     .clip(CircleShape)
                                     .then(
                                         if (selected) {

@@ -85,6 +85,15 @@ object CouiTokens {
         val ProgressIndicatorHeight = 4.dp
         val CircularProgressLength = 40.dp
         val CircularProgressStrokeWidth = 5.dp
+        val DatePickerDaySize = 40.dp
+        val DatePickerWeekdayHeight = 32.dp
+        val DatePickerHorizontalPadding = 16.dp
+        val TimePickerFocusTextHeight = 48.dp
+        val TimePickerNormalTextHeight = 40.dp
+        val TimePickerHeight = 240.dp
+        val TabLayoutHeight = 48.dp
+        val TabIndicatorHeight = 2.dp
+        val TabHorizontalPadding = 16.dp
         val SliderProgressHeight = 20.dp
         val SliderThumbRadius = 6.dp
         val SnackbarMaxWidth = 328.dp
