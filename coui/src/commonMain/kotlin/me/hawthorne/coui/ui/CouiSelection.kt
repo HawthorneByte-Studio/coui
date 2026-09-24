@@ -70,10 +70,18 @@ fun CouiCheckbox(
     ) {
         Checkbox(
             checked = checked,
-            onCheckedChange = onCheckedChange,
+            onCheckedChange = null,
             enabled = enabled,
         )
-        Text(text = label, modifier = Modifier.padding(start = 8.dp))
+        Text(
+            text = label,
+            modifier = Modifier.padding(start = 8.dp),
+            color = if (enabled) {
+                MaterialTheme.colorScheme.onSurface
+            } else {
+                MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
+            },
+        )
     }
 }
 

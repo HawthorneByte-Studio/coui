@@ -58,7 +58,7 @@ fun CouiSwitch(
         Text(text = label, modifier = Modifier.weight(1f))
         Switch(
             checked = checked,
-            onCheckedChange = onCheckedChange,
+            onCheckedChange = null,
             enabled = enabled,
         )
     }
