@@ -50,6 +50,8 @@ Use the run configurations provided by the run widget in your IDE's toolbar. You
 The `exampleApp` module is a standalone showcase application for the reusable
 COUI components. The existing `androidApp` module remains the original sample
 application.
+The showcase includes Home, Controls, Pickers, and More pages with interactive
+overlays, refresh feedback, vector icons, preferences, pager, and tooltip examples.
 
 ### Running tests
 

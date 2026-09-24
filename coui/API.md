@@ -6,6 +6,7 @@ The public API lives under `me.hawthorne.coui.ui`.
 
 - `CouiTheme`, `CouiTokens`, `CouiMotion`, `CouiScaffold`
 - `CouiTopBar`, `CouiCard`, `CouiButton`, `CouiButtonGroup`
+- `CouiIcons` (`Home`, `Tune`, `Calendar`, `More`, `Add`, `Refresh`)
 
 ## Forms and selection
 
@@ -24,3 +25,7 @@ The public API lives under `me.hawthorne.coui.ui`.
 - `CouiDialog`, `CouiBottomSheet`, `CouiTooltip`, `CouiSnackbarHost`
 - `CouiProgressIndicator`, `CouiPullRefresh`, `CouiPager`
 - `CouiDatePicker` (with optional range and today action), `CouiTimePicker`
+
+`CouiTokens.Components` exposes the shared COUI component heights for buttons,
+top bars, list rows, and alert-dialog actions. `CouiTheme` also provides the
+COUI typography weights and light/dark color surfaces used by the components.
