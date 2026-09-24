@@ -44,6 +44,12 @@ object CouiTokens {
         val FloatingPopupMinWidth = 56.dp
         val FloatingPopupMinHeight = 44.dp
         val FloatingPopupIconSize = 20.dp
+        val PopupListMinWidth = 132.dp
+        val PopupListMaxWidth = 328.dp
+        val PopupListContentRadius = 16.dp
+        val PopupListItemMinHeight = 42.dp
+        val PopupListItemVerticalPadding = 8.dp
+        val PopupListItemHorizontalPadding = 24.dp
         val RoundCornerXlRadius = 16.dp
         const val RoundCornerMWeight = 1.1f
         const val RoundCornerXlWeight = 0.99f
