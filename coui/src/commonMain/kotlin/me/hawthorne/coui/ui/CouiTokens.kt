@@ -82,6 +82,16 @@ object CouiTokens {
         val TooltipCornerRadius = 17.dp
         val TooltipPadding = 13.dp
         val TooltipFloatingHorizontalPadding = 16.dp
+        val ProgressIndicatorHeight = 4.dp
+        val CircularProgressLength = 40.dp
+        val CircularProgressStrokeWidth = 5.dp
+        val SliderProgressHeight = 20.dp
+        val SliderThumbRadius = 6.dp
+        val SnackbarMaxWidth = 328.dp
+        val SnackbarPaddingVertical = 16.dp
+        val SnackbarRadius = 16.dp
+        val SnackbarSingleLineRadius = 24.dp
+        val SnackbarMarginBottom = 32.dp
         val RoundCornerXlRadius = 16.dp
         const val RoundCornerMWeight = 1.1f
         const val RoundCornerXlWeight = 0.99f

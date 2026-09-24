@@ -7,14 +7,19 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
+import androidx.compose.material3.Snackbar
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 @Composable
 fun CouiSlider(
@@ -30,6 +35,14 @@ fun CouiSlider(
         modifier = modifier.fillMaxWidth(),
         valueRange = valueRange,
         enabled = enabled,
+        colors = SliderDefaults.colors(
+            thumbColor = CouiColors.Blue,
+            activeTrackColor = CouiColors.Blue,
+            inactiveTrackColor = CouiColors.ProgressTrackLight,
+            disabledThumbColor = CouiColors.ProgressDisabledLight,
+            disabledActiveTrackColor = CouiColors.ProgressDisabledLight,
+            disabledInactiveTrackColor = CouiColors.ProgressTrackLight,
+        ),
     )
 }
 
@@ -59,7 +72,7 @@ fun CouiRadioButton(
             color = if (enabled) {
                 androidx.compose.material3.MaterialTheme.colorScheme.onSurface
             } else {
-                androidx.compose.material3.MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
+                CouiColors.DisabledTextLight
             },
         )
     }
@@ -72,6 +85,18 @@ fun CouiSnackbarHost(
 ) {
     SnackbarHost(
         hostState = hostState,
-        modifier = modifier,
+        modifier = modifier
+            .widthIn(max = CouiTokens.Components.SnackbarMaxWidth)
+            .padding(bottom = CouiTokens.Components.SnackbarMarginBottom),
+        snackbar = { data ->
+            Snackbar(
+                snackbarData = data,
+                shape = RoundedCornerShape(CouiTokens.Components.SnackbarSingleLineRadius),
+                containerColor = MaterialTheme.colorScheme.inverseSurface,
+                contentColor = MaterialTheme.colorScheme.inverseOnSurface,
+                actionColor = CouiColors.BlueLight,
+                modifier = Modifier.padding(vertical = CouiTokens.Components.SnackbarPaddingVertical),
+            )
+        },
     )
 }

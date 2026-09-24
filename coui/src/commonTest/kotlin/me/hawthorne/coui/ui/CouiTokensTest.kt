@@ -24,6 +24,8 @@ class CouiTokensTest {
         assertEquals(32f, CouiTokens.Components.ChipMinHeight.value)
         assertEquals(22f, CouiTokens.Components.BottomSheetTopCornerRadius.value)
         assertEquals(17f, CouiTokens.Components.TooltipCornerRadius.value)
+        assertEquals(40f, CouiTokens.Components.CircularProgressLength.value)
+        assertEquals(328f, CouiTokens.Components.SnackbarMaxWidth.value)
     }
 
     @Test

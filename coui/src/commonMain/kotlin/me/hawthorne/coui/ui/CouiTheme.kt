@@ -49,6 +49,10 @@ object CouiColors {
     val SearchHintDark = Color(0x66FFFFFF)
     val DisabledTextLight = Color(0x26000000)
     val DisabledTextDark = Color(0x4DFFFFFF)
+    val ProgressTrackLight = Color(0x1F000000)
+    val ProgressTrackDark = Color(0x1FFFFFFF)
+    val ProgressDisabledLight = Color(0xFFE6E6E6)
+    val ProgressDisabledDark = Color(0xFF262626)
     val LightBackground = Color(0xFFF5F6F8)
     val LightSurface = Color.White
     val LightSurfaceVariant = Color(0xFFEEF0F4)

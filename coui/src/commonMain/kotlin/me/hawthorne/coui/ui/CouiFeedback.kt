@@ -10,6 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -51,9 +52,13 @@ fun CouiProgressIndicator(
             progress = { progress.coerceIn(0f, 1f) },
             modifier = modifier
                 .fillMaxWidth()
-                .height(6.dp),
+                .height(CouiTokens.Components.ProgressIndicatorHeight),
             color = CouiColors.Blue,
-            trackColor = MaterialTheme.colorScheme.surfaceVariant,
+            trackColor = if (MaterialTheme.colorScheme.surface.luminance() < 0.5f) {
+                CouiColors.ProgressTrackDark
+            } else {
+                CouiColors.ProgressTrackLight
+            },
         )
     }
 }
