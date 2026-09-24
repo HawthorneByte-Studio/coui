@@ -20,6 +20,7 @@ object CouiTokens {
         val Small = 12.dp
         val Medium = 16.dp
         val Large = 20.dp
+        val AlertDialog = 22.dp
         val Pill = 999.dp
     }
 
@@ -31,9 +32,18 @@ object CouiTokens {
 
     object Components {
         val AlertDialogButtonHeight = 58.dp
+        val AlertDialogMaxWidth = 400.dp
+        val AlertDialogMaxHeight = 470.dp
+        val AlertDialogButtonPanelPaddingTop = 14.dp
+        val DialogContentMinHeight = 66.dp
+        val DialogHorizontalPadding = 24.dp
+        val DialogTitleMinHeight = 22.dp
         val ButtonHeight = 48.dp
         val TopBarHeight = 56.dp
         val ListItemMinHeight = 64.dp
+        val FloatingPopupMinWidth = 56.dp
+        val FloatingPopupMinHeight = 44.dp
+        val FloatingPopupIconSize = 20.dp
         val RoundCornerXlRadius = 16.dp
         const val RoundCornerMWeight = 1.1f
         const val RoundCornerXlWeight = 0.99f

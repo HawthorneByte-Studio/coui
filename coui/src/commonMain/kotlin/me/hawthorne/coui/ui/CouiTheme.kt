@@ -33,13 +33,16 @@ private val DarkColors = darkColorScheme(
 )
 
 object CouiColors {
-    val Blue = Color(0xFF2A74FF)
-    val BlueLight = Color(0xFF9DBBFF)
+    val Blue = Color(0xFF007AFF)
+    val BlueLight = Color(0xFF6B97FF)
     val BlueDark = Color(0xFF123B86)
     val BlueContainer = Color(0xFFDCE7FF)
     val BlueOnContainer = Color(0xFF001A41)
-    val Teal = Color(0xFF008A8A)
-    val TealLight = Color(0xFF55DADA)
+    val Teal = Color(0xFF2AD181)
+    val TealLight = Color(0xFF75E6AB)
+    val OplusBluePressed = Color(0xFF006EE6)
+    val OplusGreenPressed = Color(0xFF25B871)
+    val OplusDialogDivider = Color(0x0D000000)
     val LightBackground = Color(0xFFF5F6F8)
     val LightSurface = Color.White
     val LightSurfaceVariant = Color(0xFFEEF0F4)
