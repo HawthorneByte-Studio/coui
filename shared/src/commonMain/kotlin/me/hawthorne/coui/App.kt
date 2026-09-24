@@ -23,9 +23,12 @@ import me.hawthorne.coui.ui.CouiBottomSheet
 import me.hawthorne.coui.ui.CouiCard
 import me.hawthorne.coui.ui.CouiDialog
 import me.hawthorne.coui.ui.CouiDivider
+import me.hawthorne.coui.ui.CouiEmptyState
+import me.hawthorne.coui.ui.CouiIconButton
 import me.hawthorne.coui.ui.CouiListItem
 import me.hawthorne.coui.ui.CouiProgressIndicator
 import me.hawthorne.coui.ui.CouiRadioButton
+import me.hawthorne.coui.ui.CouiSearchField
 import me.hawthorne.coui.ui.CouiSection
 import me.hawthorne.coui.ui.CouiSlider
 import me.hawthorne.coui.ui.CouiSnackbarHost
@@ -46,6 +49,7 @@ fun App() {
         var progress by remember { mutableStateOf(0.6f) }
         var sliderValue by remember { mutableStateOf(0.5f) }
         var selectedOption by remember { mutableStateOf(0) }
+        var query by remember { mutableStateOf("") }
         val snackbarHostState = remember { androidx.compose.material3.SnackbarHostState() }
         val scope = rememberCoroutineScope()
         Column(modifier = Modifier.fillMaxSize()) {
@@ -55,6 +59,22 @@ fun App() {
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp),
             ) {
+                item {
+                    CouiCard {
+                        Column(modifier = Modifier.padding(20.dp)) {
+                            CouiSearchField(
+                                query = query,
+                                onQueryChange = { query = it },
+                                placeholder = "Search components",
+                                trailingContent = {
+                                    CouiIconButton(onClick = { query = "" }, enabled = query.isNotEmpty()) {
+                                        Text("Clear")
+                                    }
+                                },
+                            )
+                        }
+                    }
+                }
                 item {
                     CouiCard {
                         Column(modifier = Modifier.padding(20.dp)) {
@@ -108,6 +128,15 @@ fun App() {
                             title = "Component list item",
                             subtitle = "Reusable title and subtitle layout",
                             onClick = {},
+                        )
+                    }
+                }
+                item {
+                    CouiCard {
+                        CouiEmptyState(
+                            title = "No more components",
+                            description = "The next COUI controls will appear here.",
+                            actionText = "Refresh",
                         )
                     }
                 }
