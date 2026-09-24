@@ -24,13 +24,16 @@ object CouiTokens {
     }
 
     object Elevation {
-        val Card = 1.dp
-        val Navigation = 3.dp
-        val TopBar = 2.dp
+        val Card = 2.dp
+        val Navigation = 4.dp
+        val TopBar = 3.dp
     }
 
     object Components {
         val AlertDialogButtonHeight = 58.dp
+        val ButtonHeight = 48.dp
+        val TopBarHeight = 56.dp
+        val ListItemMinHeight = 64.dp
         val RoundCornerXlRadius = 16.dp
         const val RoundCornerMWeight = 1.1f
         const val RoundCornerXlWeight = 0.99f

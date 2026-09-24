@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.foundation.layout.heightIn
 
 @Composable
 fun CouiTopBar(
@@ -35,7 +36,8 @@ fun CouiTopBar(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = CouiTokens.Spacing.Medium, vertical = CouiTokens.Spacing.Small),
+                .heightIn(min = CouiTokens.Components.TopBarHeight)
+                .padding(horizontal = CouiTokens.Spacing.Large, vertical = CouiTokens.Spacing.Small),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             if (navigationIcon != null) {
@@ -76,7 +78,7 @@ fun CouiButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier,
+        modifier = modifier.heightIn(min = CouiTokens.Components.ButtonHeight),
         enabled = enabled,
         shape = CouiShape,
         colors = ButtonDefaults.buttonColors(
