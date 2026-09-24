@@ -14,8 +14,21 @@ class CouiTokensTest {
     @Test
     fun componentTokensMatchExtractedResources() {
         assertEquals(58f, CouiTokens.Components.AlertDialogButtonHeight.value)
+        assertEquals(48f, CouiTokens.Components.ButtonHeight.value)
+        assertEquals(56f, CouiTokens.Components.TopBarHeight.value)
+        assertEquals(64f, CouiTokens.Components.ListItemMinHeight.value)
         assertEquals(16f, CouiTokens.Components.RoundCornerXlRadius.value)
         assertEquals(1.1f, CouiTokens.Components.RoundCornerMWeight)
+    }
+
+    @Test
+    fun vectorIconsExposeStableNames() {
+        assertEquals("CouiHome", CouiIcons.Home.name)
+        assertEquals("CouiTune", CouiIcons.Tune.name)
+        assertEquals("CouiCalendar", CouiIcons.Calendar.name)
+        assertEquals("CouiMore", CouiIcons.More.name)
+        assertEquals("CouiAdd", CouiIcons.Add.name)
+        assertEquals("CouiRefresh", CouiIcons.Refresh.name)
     }
 
     @Test
