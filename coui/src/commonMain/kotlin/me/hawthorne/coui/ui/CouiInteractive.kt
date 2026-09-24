@@ -2,6 +2,7 @@ package me.hawthorne.coui.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.RadioButton
@@ -43,15 +44,24 @@ fun CouiRadioButton(
     Row(
         modifier = modifier
             .fillMaxWidth()
+            .clickable(enabled = enabled, onClick = onClick)
             .padding(vertical = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         RadioButton(
             selected = selected,
-            onClick = onClick,
+            onClick = null,
             enabled = enabled,
         )
-        Text(text = label, modifier = Modifier.padding(start = 8.dp))
+        Text(
+            text = label,
+            modifier = Modifier.padding(start = 8.dp),
+            color = if (enabled) {
+                androidx.compose.material3.MaterialTheme.colorScheme.onSurface
+            } else {
+                androidx.compose.material3.MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
+            },
+        )
     }
 }
 
