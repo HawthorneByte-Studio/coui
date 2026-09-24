@@ -13,6 +13,7 @@ Selection controls include `CouiTabLayout`, `CouiCheckbox`, and `CouiDropdownMen
 Status and compact controls include `CouiChip`, `CouiStepper`, and `CouiInfoBanner`.
 The shared foundation also exposes `CouiTokens`, `CouiMotion`, and `CouiScaffold`
 for consistent spacing, shapes, elevation, animation, and screen structure.
+Selection layouts can use `CouiSegmentedButton` or the `CouiToggleGroup` shorthand.
 
 * [/shared](./shared/src) is for code that will be shared across your Compose Multiplatform applications.
   It contains several subfolders:

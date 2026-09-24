@@ -40,6 +40,8 @@ import me.hawthorne.coui.ui.CouiDropdownMenu
 import me.hawthorne.coui.ui.CouiSection
 import me.hawthorne.coui.ui.CouiSlider
 import me.hawthorne.coui.ui.CouiSnackbarHost
+import me.hawthorne.coui.ui.CouiSegment
+import me.hawthorne.coui.ui.CouiSegmentedButton
 import me.hawthorne.coui.ui.CouiStepper
 import me.hawthorne.coui.ui.CouiInfoBanner
 import me.hawthorne.coui.ui.CouiSwitch
@@ -67,6 +69,7 @@ fun App() {
         var selectedMenuItem by remember { mutableStateOf(0) }
         var stepperValue by remember { mutableStateOf(2) }
         var selectedChip by remember { mutableStateOf(0) }
+        var selectedSegment by remember { mutableStateOf(0) }
         val snackbarHostState = remember { androidx.compose.material3.SnackbarHostState() }
         val scope = rememberCoroutineScope()
         Column(modifier = Modifier.fillMaxSize()) {
@@ -143,6 +146,14 @@ fun App() {
                                 value = stepperValue,
                                 onValueChange = { stepperValue = it },
                                 valueRange = 0..10,
+                            )
+                            CouiSegmentedButton(
+                                segments = listOf(
+                                    CouiSegment("List"),
+                                    CouiSegment("Grid"),
+                                ),
+                                selectedIndex = selectedSegment,
+                                onSelectedIndexChange = { selectedSegment = it },
                             )
                             CouiButton(
                                 text = "Choose style: ${listOf("Blue", "Teal", "Neutral")[selectedMenuItem]}",

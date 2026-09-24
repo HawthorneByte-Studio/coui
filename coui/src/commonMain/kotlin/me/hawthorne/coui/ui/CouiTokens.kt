@@ -34,6 +34,8 @@ object CouiTokens {
         const val Emphasized = 350
     }
 
+    private val SmallCorner: Dp = 8.dp
+
     val Shapes = Shapes(
         extraSmall = RoundedCornerShape(SmallCorner),
         small = RoundedCornerShape(Corners.Small),
@@ -41,8 +43,6 @@ object CouiTokens {
         large = RoundedCornerShape(Corners.Large),
         extraLarge = RoundedCornerShape(Corners.Large),
     )
-
-    private val SmallCorner: Dp = 8.dp
 }
 
 internal val CouiShape = RoundedCornerShape(CouiTokens.Corners.Medium)

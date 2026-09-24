@@ -94,7 +94,7 @@ fun CouiButtonGroup(
 ) {
     Column(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(12.dp),
+        verticalArrangement = Arrangement.spacedBy(CouiTokens.Spacing.Medium),
         content = content,
     )
 }
