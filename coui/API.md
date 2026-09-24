@@ -1,5 +1,7 @@
 # COUI API Overview
 
+See [`COMPONENT_MATRIX.md`](./COMPONENT_MATRIX.md) for the clean-room reverse-engineering and coverage plan.
+
 The public API lives under `me.hawthorne.coui.ui`.
 
 ## Foundation

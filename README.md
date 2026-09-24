@@ -19,7 +19,8 @@ Selection layouts can use `CouiSegmentedButton` or the `CouiToggleGroup` shortha
 Settings screens can use `CouiPreferenceCategory` and `CouiPreferenceItem`.
 Long-press guidance can use `CouiTooltip` without opting into experimental Material APIs.
 The `coui` module also includes reusable Compose previews in `CouiPreviews.kt`.
-See [`coui/API.md`](./coui/API.md) for the current component surface and
+See [`coui/API.md`](./coui/API.md) for the current component surface,
+[`coui/COMPONENT_MATRIX.md`](./coui/COMPONENT_MATRIX.md) for the reverse-engineering and coverage plan, and
 [`CHANGELOG.md`](./CHANGELOG.md) for the development history.
 Calendar screens can use `CouiDatePicker` with the platform-neutral `CouiDate` model.
 `CouiDatePicker` also supports optional `minDate`, `maxDate`, and `today` constraints.
