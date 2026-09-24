@@ -67,7 +67,11 @@ private fun CouiNavigationBarItem(
             .widthIn(max = CouiTokens.Components.NavigationItemMaxWidth)
             .heightIn(min = CouiTokens.Components.NavigationItemHeight)
             .clickable(onClick = item.onClick)
-            .padding(top = CouiTokens.Components.NavigationItemIconTopMargin),
+            .padding(
+                start = CouiTokens.Components.NavigationItemHorizontalPadding,
+                top = CouiTokens.Components.NavigationItemIconTopMargin,
+                end = CouiTokens.Components.NavigationItemHorizontalPadding,
+            ),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(CouiTokens.Components.NavigationItemIconLabelGap),
     ) {
@@ -75,6 +79,14 @@ private fun CouiNavigationBarItem(
             Surface(
                 modifier = Modifier.size(32.dp),
                 shape = CircleShape,
+                contentColor = animateColorAsState(
+                    targetValue = if (item.selected) {
+                        MaterialTheme.colorScheme.primary
+                    } else {
+                        MaterialTheme.colorScheme.onSurfaceVariant
+                    },
+                    label = "navigation-icon",
+                ).value,
                 color = animateColorAsState(
                     targetValue = if (item.selected) {
                         CouiColors.BlueContainer

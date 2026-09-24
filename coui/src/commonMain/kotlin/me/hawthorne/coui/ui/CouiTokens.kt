@@ -69,6 +69,7 @@ object CouiTokens {
         val NavigationItemHeight = 48.dp
         val NavigationItemIconTopMargin = 4.dp
         val NavigationItemIconLabelGap = 2.dp
+        val NavigationItemHorizontalPadding = 12.dp
         val NavigationItemSpacing = 8.dp
         val NavigationBarHorizontalPadding = 16.dp
         val NavigationItemMaxWidth = 70.dp
