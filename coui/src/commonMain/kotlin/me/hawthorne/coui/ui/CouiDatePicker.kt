@@ -80,8 +80,8 @@ fun CouiDatePicker(
                 )
             }
         }
-        val leadingEmptyDays = firstWeekday(displayedYear, safeMonth)
-        val totalDays = daysInMonth(displayedYear, safeMonth)
+        val leadingEmptyDays = couiFirstWeekday(displayedYear, safeMonth)
+        val totalDays = couiDaysInMonth(displayedYear, safeMonth)
         val cells = List(leadingEmptyDays) { null } + (1..totalDays).map { it }
         cells.chunked(7).forEach { week ->
             Row(modifier = Modifier.fillMaxWidth()) {
@@ -130,7 +130,7 @@ fun CouiDatePicker(
     }
 }
 
-private fun daysInMonth(year: Int, month: Int): Int = when (month) {
+internal fun couiDaysInMonth(year: Int, month: Int): Int = when (month) {
     2 -> if (isLeapYear(year)) 29 else 28
     4, 6, 9, 11 -> 30
     else -> 31
@@ -138,7 +138,7 @@ private fun daysInMonth(year: Int, month: Int): Int = when (month) {
 
 private fun isLeapYear(year: Int): Boolean = year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)
 
-private fun firstWeekday(year: Int, month: Int): Int {
+internal fun couiFirstWeekday(year: Int, month: Int): Int {
     var adjustedYear = year
     var adjustedMonth = month
     if (adjustedMonth < 3) {

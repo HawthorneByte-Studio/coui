@@ -22,5 +22,8 @@ kotlin {
             implementation(libs.compose.runtime)
             implementation(libs.compose.ui)
         }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+        }
     }
 }

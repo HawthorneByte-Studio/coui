@@ -61,7 +61,7 @@ fun CouiTimePicker(
             )
             Text(":", style = MaterialTheme.typography.headlineMedium)
             CouiStepper(
-                value = minuteIndex(selectedTime.minute, safeStep),
+                value = couiMinuteIndex(selectedTime.minute, safeStep),
                 onValueChange = { minuteIndex ->
                     onTimeSelected(
                         selectedTime.copy(
@@ -113,5 +113,5 @@ private fun formatTime(time: CouiTime): String {
     return "%02d:%02d%s".format(hour, time.minute, period)
 }
 
-private fun minuteIndex(minute: Int, step: Int): Int =
+internal fun couiMinuteIndex(minute: Int, step: Int): Int =
     minute.coerceIn(0, 59) / step
