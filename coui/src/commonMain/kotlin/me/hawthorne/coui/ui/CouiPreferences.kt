@@ -1,6 +1,7 @@
 package me.hawthorne.coui.ui
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -77,7 +78,11 @@ fun CouiPreferenceItem(
                 color = if (enabled) {
                     MaterialTheme.colorScheme.onSurface
                 } else {
-                    MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
+                    if (isSystemInDarkTheme()) {
+                        CouiColors.DisabledTextDark
+                    } else {
+                        CouiColors.DisabledTextLight
+                    }
                 },
             )
             if (summary != null) {
@@ -85,7 +90,13 @@ fun CouiPreferenceItem(
                     text = summary,
                     modifier = Modifier.padding(top = CouiTokens.Spacing.XSmall),
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    color = if (enabled) {
+                        MaterialTheme.colorScheme.onSurfaceVariant
+                    } else if (isSystemInDarkTheme()) {
+                        CouiColors.DisabledTextDark
+                    } else {
+                        CouiColors.DisabledTextLight
+                    },
                 )
             }
         }
