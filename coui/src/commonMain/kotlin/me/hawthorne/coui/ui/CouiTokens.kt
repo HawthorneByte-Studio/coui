@@ -5,6 +5,7 @@ import androidx.compose.material3.Shapes
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 object CouiTokens {
     object Spacing {
@@ -39,7 +40,13 @@ object CouiTokens {
         val DialogHorizontalPadding = 24.dp
         val DialogTitleMinHeight = 22.dp
         val ButtonHeight = 48.dp
-        val TopBarHeight = 56.dp
+        val TopBarHeight = 52.dp
+        val TopBarTitleSize = 24.sp
+        val TopBarTitlePaddingStart = 24.dp
+        val SearchFieldHeight = 40.dp
+        val SearchFieldTextSize = 15.sp
+        val SearchFieldHintSize = 12.sp
+        val SearchFieldIconMargin = 12.dp
         val ListItemMinHeight = 64.dp
         val FloatingPopupMinWidth = 56.dp
         val FloatingPopupMinHeight = 44.dp

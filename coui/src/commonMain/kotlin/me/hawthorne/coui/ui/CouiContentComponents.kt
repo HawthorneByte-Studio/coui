@@ -3,6 +3,7 @@ package me.hawthorne.coui.ui
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Icon
@@ -27,11 +28,23 @@ fun CouiSearchField(
     OutlinedTextField(
         value = query,
         onValueChange = onQueryChange,
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth()
+            .height(CouiTokens.Components.SearchFieldHeight),
         enabled = enabled,
         singleLine = true,
         shape = CouiShape,
-        placeholder = { Text(placeholder) },
+        placeholder = {
+            Text(
+                text = placeholder,
+                style = MaterialTheme.typography.bodySmall.copy(
+                    fontSize = CouiTokens.Components.SearchFieldHintSize,
+                ),
+            )
+        },
+        textStyle = MaterialTheme.typography.bodyMedium.copy(
+            fontSize = CouiTokens.Components.SearchFieldTextSize,
+        ),
         leadingIcon = leadingContent ?: { Icon(CouiIcons.Search, contentDescription = null) },
         trailingIcon = trailingContent,
     )

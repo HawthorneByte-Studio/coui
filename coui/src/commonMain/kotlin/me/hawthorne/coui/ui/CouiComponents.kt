@@ -37,7 +37,11 @@ fun CouiTopBar(
             modifier = Modifier
                 .fillMaxWidth()
                 .heightIn(min = CouiTokens.Components.TopBarHeight)
-                .padding(horizontal = CouiTokens.Spacing.Large, vertical = CouiTokens.Spacing.Small),
+                .padding(
+                    start = CouiTokens.Components.TopBarTitlePaddingStart,
+                    end = CouiTokens.Spacing.Large,
+                    vertical = CouiTokens.Spacing.Small,
+                ),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             if (navigationIcon != null) {
@@ -46,7 +50,9 @@ fun CouiTopBar(
             Text(
                 text = title,
                 modifier = Modifier.weight(1f),
-                style = MaterialTheme.typography.titleLarge,
+                style = MaterialTheme.typography.titleLarge.copy(
+                    fontSize = CouiTokens.Components.TopBarTitleSize,
+                ),
             )
             if (actions != null) {
                 actions()

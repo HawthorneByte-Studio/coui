@@ -15,7 +15,7 @@ class CouiTokensTest {
     fun componentTokensMatchExtractedResources() {
         assertEquals(58f, CouiTokens.Components.AlertDialogButtonHeight.value)
         assertEquals(48f, CouiTokens.Components.ButtonHeight.value)
-        assertEquals(56f, CouiTokens.Components.TopBarHeight.value)
+        assertEquals(52f, CouiTokens.Components.TopBarHeight.value)
         assertEquals(64f, CouiTokens.Components.ListItemMinHeight.value)
         assertEquals(16f, CouiTokens.Components.RoundCornerXlRadius.value)
         assertEquals(1.1f, CouiTokens.Components.RoundCornerMWeight)
