@@ -3,7 +3,11 @@ plugins {
     alias(libs.plugins.androidMultiplatformLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    `maven-publish`
 }
+
+group = "me.hawthorne.coui"
+version = "0.1.0"
 
 kotlin {
     android {
@@ -25,6 +29,30 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+    }
+}
+
+publishing {
+    repositories {
+        mavenLocal()
+    }
+    publications {
+        withType<MavenPublication> {
+            if (name == "android") {
+                artifactId = "coui"
+            }
+            pom {
+                name.set("COUI")
+                description.set("ColorOS-inspired Compose UI components for Android")
+                url.set("https://github.com/HawthorneByte-Studio/coui")
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+            }
         }
     }
 }

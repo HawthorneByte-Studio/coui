@@ -56,6 +56,30 @@ application.
 The showcase includes Home, Controls, Pickers, and More pages with interactive
 overlays, refresh feedback, vector icons, preferences, pager, and tooltip examples.
 
+### Publishing and consuming COUI
+
+The Android `coui` library publishes as `me.hawthorne.coui:coui:0.1.0`.
+Publish a local Maven artifact with:
+
+```powershell
+.\gradlew.bat :coui:publishAndroidPublicationToMavenLocal
+```
+
+In another Android project, add `mavenLocal()` before remote repositories and
+depend on the library:
+
+```kotlin
+repositories {
+    mavenLocal()
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    implementation("me.hawthorne.coui:coui:0.1.0")
+}
+```
+
 ### Running tests
 
 Use the run button in your IDE's editor gutter, or run tests using Gradle tasks:
