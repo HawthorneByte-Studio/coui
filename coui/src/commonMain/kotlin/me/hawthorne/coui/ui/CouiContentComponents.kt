@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -31,7 +32,7 @@ fun CouiSearchField(
         singleLine = true,
         shape = CouiShape,
         placeholder = { Text(placeholder) },
-        leadingIcon = leadingContent,
+        leadingIcon = leadingContent ?: { Icon(CouiIcons.Search, contentDescription = null) },
         trailingIcon = trailingContent,
     )
 }

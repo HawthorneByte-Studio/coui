@@ -29,6 +29,12 @@ class CouiTokensTest {
         assertEquals("CouiMore", CouiIcons.More.name)
         assertEquals("CouiAdd", CouiIcons.Add.name)
         assertEquals("CouiRefresh", CouiIcons.Refresh.name)
+        assertEquals("CouiBack", CouiIcons.Back.name)
+        assertEquals("CouiSearch", CouiIcons.Search.name)
+        assertEquals("CouiClose", CouiIcons.Close.name)
+        assertEquals("CouiCheck", CouiIcons.Check.name)
+        assertEquals("CouiChevronRight", CouiIcons.ChevronRight.name)
+        assertEquals("CouiInfo", CouiIcons.Info.name)
     }
 
     @Test

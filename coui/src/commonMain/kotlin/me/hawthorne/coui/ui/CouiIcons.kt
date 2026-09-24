@@ -155,4 +155,103 @@ object CouiIcons {
             }
         }.build()
     }
+
+    val Back: ImageVector by lazy {
+        ImageVector.Builder("CouiBack", 24.dp, 24.dp, 24f, 24f).apply {
+            path(fill = SolidColor(Color.Black)) {
+                moveTo(20f, 11f)
+                horizontalLineTo(7.83f)
+                lineTo(13.42f, 5.41f)
+                lineTo(12f, 4f)
+                lineTo(4f, 12f)
+                lineTo(12f, 20f)
+                lineTo(13.42f, 18.59f)
+                lineTo(7.83f, 13f)
+                horizontalLineTo(20f)
+                close()
+            }
+        }.build()
+    }
+
+    val Search: ImageVector by lazy {
+        ImageVector.Builder("CouiSearch", 24.dp, 24.dp, 24f, 24f).apply {
+            path(fill = SolidColor(Color.Black)) {
+                moveTo(9.5f, 4f)
+                curveTo(6.46f, 4f, 4f, 6.46f, 4f, 9.5f)
+                curveTo(4f, 12.54f, 6.46f, 15f, 9.5f, 15f)
+                curveTo(10.87f, 15f, 12.13f, 14.5f, 13.1f, 13.67f)
+                lineTo(18.72f, 19.29f)
+                lineTo(20.14f, 17.87f)
+                lineTo(14.52f, 12.25f)
+                curveTo(15.13f, 11.45f, 15.5f, 10.51f, 15.5f, 9.5f)
+                curveTo(15.5f, 6.46f, 13.04f, 4f, 9.5f, 4f)
+                close()
+            }
+        }.build()
+    }
+
+    val Close: ImageVector by lazy {
+        ImageVector.Builder("CouiClose", 24.dp, 24.dp, 24f, 24f).apply {
+            path(fill = SolidColor(Color.Black)) {
+                moveTo(6.41f, 5f)
+                lineTo(12f, 10.59f)
+                lineTo(17.59f, 5f)
+                lineTo(19f, 6.41f)
+                lineTo(13.41f, 12f)
+                lineTo(19f, 17.59f)
+                lineTo(17.59f, 19f)
+                lineTo(12f, 13.41f)
+                lineTo(6.41f, 19f)
+                lineTo(5f, 17.59f)
+                lineTo(10.59f, 12f)
+                lineTo(5f, 6.41f)
+                close()
+            }
+        }.build()
+    }
+
+    val Check: ImageVector by lazy {
+        ImageVector.Builder("CouiCheck", 24.dp, 24.dp, 24f, 24f).apply {
+            path(fill = SolidColor(Color.Black)) {
+                moveTo(9f, 16.17f)
+                lineTo(4.83f, 12f)
+                lineTo(3.41f, 13.41f)
+                lineTo(9f, 19f)
+                lineTo(21f, 7f)
+                lineTo(19.59f, 5.59f)
+                close()
+            }
+        }.build()
+    }
+
+    val ChevronRight: ImageVector by lazy {
+        ImageVector.Builder("CouiChevronRight", 24.dp, 24.dp, 24f, 24f).apply {
+            path(fill = SolidColor(Color.Black)) {
+                moveTo(9.29f, 6.71f)
+                lineTo(14.59f, 12f)
+                lineTo(9.29f, 17.29f)
+                lineTo(10.71f, 18.71f)
+                lineTo(17.41f, 12f)
+                lineTo(10.71f, 5.29f)
+                close()
+            }
+        }.build()
+    }
+
+    val Info: ImageVector by lazy {
+        ImageVector.Builder("CouiInfo", 24.dp, 24.dp, 24f, 24f).apply {
+            path(fill = SolidColor(Color.Black)) {
+                moveTo(11f, 10f)
+                horizontalLineTo(13f)
+                verticalLineTo(18f)
+                horizontalLineTo(11f)
+                close()
+                moveTo(11f, 6f)
+                horizontalLineTo(13f)
+                verticalLineTo(8f)
+                horizontalLineTo(11f)
+                close()
+            }
+        }.build()
+    }
 }
